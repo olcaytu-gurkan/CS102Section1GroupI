@@ -2,6 +2,6 @@
 
   ---  GROUP MEMBERS  ---
   
-  Mustafa Oğuz DUMAN
+  Mustafa Oğuz DUMAN 21902051
   Olcaytu GÜRKAN 21903031
  
