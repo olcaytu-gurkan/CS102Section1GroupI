@@ -19,7 +19,8 @@ AskIt is an application that will help students to get answers to their question
 
 [Group Meetings Log](meetingslog.md)
 #### Group Members
-- [Mustafa Oğuz DUMAN 21902051](oguz_duman_personallog.txt)    _(full names & links to personal log files)_
+_(full names & links to personal log files)_
+- [Mustafa Oğuz DUMAN 21902051](oguz_duman_personallog.txt)    
 - [Olcaytu GÜRKAN 21903031](olcaytu-gurkan_log.txt)
 - [Selbi Ereshova 21901326](Selbi_Ereshova-personallog.txt) 
 - [Suleyman Hanyyev 21901009](Suleyman_Hanyyev-personallog.txt) 
