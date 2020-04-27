@@ -8,7 +8,7 @@ Below is a record of our project group meetings. This page will be submitted tog
 **Present:** Everyone
 
 **Discussion:** 
-We solved the group homework: The gangman game. Everyone contributed.
+We solved the group homework: The Hangman game. Everyone contributed.
 
 **ToDo:** Need to upload to Moodle.
 
