@@ -16,12 +16,14 @@ We reviewed progress. Member1 & member2 reported back, explaining that they had 
 ### Meeting ~ (24.04.2020, 2 hours)
 ****
 **Present:** Everyone
+
 We have discussed about the general outline of our design and created objects and classes for our project.
 
 ****
 ### Meeting ~ (25.04.2020, 2 hours)
 ****
 **Present:** Everyone
+
 We have discussed about the methods and inheritance relationships of our detailed design.
 
 ****
