@@ -22,7 +22,7 @@ AskIt is an application that will help students to get answers to their question
 - [Mustafa Oğuz DUMAN 21902051] (group/member1_log.md)    _(full name & link to personal log file)_
 - [Olcaytu GÜRKAN 21903031](olcaytu-gurkan_log.txt)
 - [Selbi Ereshova 21901326](Selbi_Ereshova-personallog.txt) 
-- [Suleyman Hanyyev 21901009]
+- [Suleyman Hanyyev 21901009](Suleyman_Hanyyev-personallog.txt) 
 - [Emirhan Nadir Karaman 21903103](emirhan-karaman_log.txt)
 
 ****
