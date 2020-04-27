@@ -21,7 +21,7 @@ AskIt is an application that will help students to get answers to their question
 #### Group Members
 - [Mustafa Oğuz DUMAN 21902051] (group/member1_log.md)    _(full name & link to personal log file)_
 - [Olcaytu GÜRKAN 21903031](olcaytu-gurkan_log.txt)
-- [Selbi Ereshova 21901326] (Selbi_Ereshova-personallog.txt) 
+- [Selbi Ereshova 21901326](Selbi_Ereshova-personallog.txt) 
 - [Suleyman Hanyyev 21901009]
 - [Emirhan Nadir Karaman 21903103]
 
