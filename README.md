@@ -10,9 +10,9 @@ The information and code in this repository are submitted in partial fulfillment
 AskIt is an application that will help students to get answers to their questions and cre-ate a database of questions that will be displayed as a FAQ Section. If the question that the user asks is in our database, our app will show the answer automatically. If the ques-tion is not in the database, the user will wait for an answer from other university stu-dents. This app will be easy to use as it has many user-friendly features such as filtering answers by several different criteria. It will be available for Android users at the moment.
    
 ## Project Status
-+ **Group/project Selection:** completed (date)
-+ **Requirements:** completed (date)
-+ **UI Design:** completed (date)
++ **Group/project Selection:** completed (17.02.2020)
++ **Requirements:** completed (24.02.2020)
++ **UI Design:** completed (29.03.2020)
 + **Detailed Design:** in progress
 + **Implementation:** not started!
 + **Reflections:** not yet!
