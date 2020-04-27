@@ -17,7 +17,7 @@ AskIt is an application that will help students to get answers to their question
 + **Implementation:** not started!
 + **Reflections:** not yet!
 
-[Group Meetings Log](group/meetingslog.md)
+[Group Meetings Log](meetingslog.md)
 #### Group Members
 - [Mustafa Oğuz DUMAN 21902051] (group/member1_log.md)    _(full name & link to personal log file)_
 - [Olcaytu GÜRKAN 21903031](olcaytu-gurkan_log.txt)
