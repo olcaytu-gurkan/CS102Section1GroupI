@@ -16,6 +16,8 @@ We solved the group homework: The gangman game. Everyone contributed.
 ### Meeting ~ Project idea brainstorming at Bilka (date, 1 hours)
 ****
 **Present:** Everyone 
+
+**Discussion:** 
 We have discussed project ideas. Each one of us came up with at least one project idea
 
 **ToDo:** Need to discuss our ideas with Mr.Davenport
@@ -24,12 +26,16 @@ We have discussed project ideas. Each one of us came up with at least one projec
 ### Meeting ~ Project proposal group work (25.04.2020, 2 hours)
 ****
 **Present:** Everyone except 1 member _**Absent:**_ Selbi Ereshova
+
+**Discussion:** 
 We have written the project proposal.
 
 ****
 ### Meeting ~ Project idea brainstorming at Mozart cafe (date, 1 hours)
 ****
 **Present:** Everyone 
+
+**Discussion:** 
 since Mr.Davenport didn’t like any of our ideas we decided to go with the most entertaining and challenging project ideas- piano teaching app ( Emirhan’s idea )
 
 **ToDo:**Again need to discuss our ideas with Mr.Davenport
