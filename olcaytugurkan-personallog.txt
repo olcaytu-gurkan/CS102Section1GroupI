@@ -1,1 +1,0 @@
-6-12 April 2020: Started to learn Android Studio. Installation, basics, virtual device and idea of constraints. Spent approximately 5 hours
