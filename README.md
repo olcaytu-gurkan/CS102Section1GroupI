@@ -21,7 +21,7 @@ _Include a concise description of your project here. Be sure to include the prop
 #### Group Members
 - Mustafa Oğuz DUMAN 21902051 (group/member1_log.md)    _(full name & link to personal log file)_
 - Olcaytu GÜRKAN 21903031(group/member2_log.md)
--  [Selbi Ereshova 21901326] (Selbi_Ereshova-personallog.md) 
+-  [Selbi Ereshova 21901326] (Selbi_Ereshova-personallog.txt) 
 - Suleyman Hanyyev 21901009
 - Emirhan Nadir Karaman 21903103
 
