@@ -3,28 +3,35 @@
 Below is a record of our project group meetings. This page will be submitted together with the rest of the repository, in partial fulfillment of the CS102 course requirements.
 
 ****
-### Meeting ~ (date, duration)
+### Meeting ~ Group work Hw1 Hangman game (date, 1 hour)
 ****
-**Present:** x, y, z...   _**Absent:**_  a, b.
+**Present:** Everyone
 
 **Discussion:** 
-We reviewed progress. Member1 & member2 reported back, explaining that they had discovered rst and demonstrated some useful examples. Member3 had slept and has not yet completed his task, but promised to do so this week! We decided we need to do this, that, and the other, and divided the work between us. Next meeting planned for (date).
+We solved the group homework: The gangman game. Everyone contributed.
 
-**ToDo:** x & y will do this by ???, z & a will do that by ???, etc.
-
-****
-### Meeting ~ (24.04.2020, 2 hours)
-****
-**Present:** Everyone
-
-We have discussed about the general outline of our design and created objects and classes for our project.
+**ToDo:** Need to upload to Moodle.
 
 ****
-### Meeting ~ (25.04.2020, 2 hours)
+### Meeting ~ Project idea brainstorming at Bilka (date, 1 hours)
 ****
-**Present:** Everyone
+**Present:** Everyone 
+We have discussed project ideas. Each one of us came up with at least one project idea
 
-We have discussed about the methods and inheritance relationships of our detailed design.
+**ToDo:** Need to discuss our ideas with Mr.Davenport
 
+****
+### Meeting ~ Project proposal group work (25.04.2020, 2 hours)
+****
+**Present:** Everyone except 1 member _**Absent:**_ Selbi Ereshova
+We have written the project proposal.
+
+****
+### Meeting ~ Project idea brainstorming at Mozart cafe (date, 1 hours)
+****
+**Present:** Everyone 
+since Mr.Davenport didn’t like any of our ideas we decided to go with the most entertaining and challenging project ideas- piano teaching app ( Emirhan’s idea )
+
+**ToDo:**Again need to discuss our ideas with Mr.Davenport
 ****
 ****
