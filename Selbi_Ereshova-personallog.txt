@@ -15,4 +15,11 @@ Passed to practicing Android. For help used youtube tutorials
 ### ~ 24-25 April ~
 Contributed to the detailed design of our project
 
+### ~ 29 April ~
+Created the splash screen of our project by following youtube tutorials. Learned about styles.xml and how to alter it to remove the title bar of the activity
+
+### ~ 30 April ~
+Commited the splash screen codes to our github repository using GitKraken. Also learned some basic git operations such as: pull, push, add, commit. 
+
 ****
+
