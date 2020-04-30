@@ -1,0 +1,2 @@
+rootProject.name='Splash screen Ask It'
+include ':app'
