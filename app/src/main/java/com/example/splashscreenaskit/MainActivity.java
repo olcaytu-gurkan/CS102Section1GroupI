@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import com.example.splashscreenaskit.ui.login.LoginActivity;
 
-public class THIRD extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
 {
 
     private static int SPLASH_TIME_OUT = 3000;
