@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.splashscreenaskit.MainScreen;
 import com.example.splashscreenaskit.R;
 import com.example.splashscreenaskit.ui.login.LoginViewModel;
 import com.example.splashscreenaskit.ui.login.LoginViewModelFactory;
@@ -34,6 +36,8 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
@@ -128,7 +132,7 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener()
+       /** loginButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -136,6 +140,18 @@ public class LoginActivity extends AppCompatActivity
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                moveToMainScreen();
+            }
+        });
+        */
+       //Added a button listener to move from login screen to main menu screen. Will be edited when sign up
+        //screen is also added
+        loginButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                moveToMainScreen();
             }
         });
     }
@@ -151,4 +167,12 @@ public class LoginActivity extends AppCompatActivity
     {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+    //Creating a method that moves to main screen
+    private void moveToMainScreen()
+    {
+        Intent intent = new Intent( LoginActivity.this, MainScreen.class);
+        startActivity(intent);
+    }
+
 }
