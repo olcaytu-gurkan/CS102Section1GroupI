@@ -40,4 +40,20 @@ since Mr.Davenport didn’t like any of our ideas we decided to go with the most
 
 **ToDo:**Again need to discuss our ideas with Mr.Davenport
 ****
+
+****
+### Meeting ~ Distributing the workload( 1 May, 1 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+We distrubuted the work need to be done to accomplished our project.
+suleiman = userprofile, sidebar screen
+selbi = mainmenuscreen, questionscreen, sortable,firebase
+oguz = question, answer, question database
+olcaytu = login screen, signup screen,searchresultscreen, firebase
+emirhan = searchengine, tag, overtext
+
+**ToDo:** Need to actually start coding.
+
 ****
