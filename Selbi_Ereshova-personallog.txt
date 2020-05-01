@@ -21,5 +21,8 @@ Created the splash screen of our project by following youtube tutorials. Learned
 ### ~ 30 April ~
 Commited the splash screen codes to our github repository using GitKraken. Also learned some basic git operations such as: pull, push, add, commit. 
 
+### ~ 1 May  ~
+Started working on the main screen. Implementing my knowledge on how to move from one activity to another by clicking on the button. But apparently it is not working. Will have to closer for bugs.
+
 ****
 
