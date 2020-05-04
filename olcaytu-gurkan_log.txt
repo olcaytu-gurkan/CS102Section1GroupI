@@ -11,4 +11,7 @@ Started to learn Android Studio. Installation, basics, virtual device and idea o
 ### ~ 20-26 April 2020 ~
 This week I contributed to detail design report and expanded my knowledge about Android Studio, learning about Bundles, Logs, Activity Lifecycle and Listeners on Android. Spent approximately 8 hours.
 
+### ~ 27 April - 3 May 2020 ~
+After we have distributed the work amongst group members, I have started to learn Firebase to complete my part. Spent approximately 6-7 hours to learn and get used to Firebase. I have finished a Udacity course about Firebase and started to code log-in screen and sign-up screen. Total hour spent = 9-10. 
+
 ****
