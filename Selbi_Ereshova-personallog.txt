@@ -24,5 +24,7 @@ Commited the splash screen codes to our github repository using GitKraken. Also 
 ### ~ 1 May  ~
 Started working on the main screen. Implementing my knowledge on how to move from one activity to another by clicking on the button. But apparently it is not working. Will have to closer for bugs.
 
+### ~ 3 May - 7 May  ~
+Learning Firebase:70% acomplished. Did the 80% of front end of main menu. Started the question class.Debuging and learning at the same time.
 ****
 
