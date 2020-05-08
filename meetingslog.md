@@ -95,11 +95,11 @@ Nearly finished detailed design. We all have an idea about the implementation of
 
 **Discussion:** 
 We distrubuted the work need to be done to accomplished our project.
-suleiman = userprofile, sidebar screen
-selbi = mainmenuscreen, questionscreen, sortable,firebase
-oguz = question, answer, question database
-olcaytu = login screen, signup screen,searchresultscreen, firebase
-emirhan = searchengine, tag, overtext
+**Suleyman** = userprofile, sidebar screen
+**Selbi** = mainmenuscreen, questionscreen, sortable,firebase
+**Oguz** = question, answer, question database
+**Olcaytu** = login screen, signup screen,searchresultscreen, firebase
+**Emirhan** = searchengine, tag, overtext
 
 **ToDo:** Need to actually start coding.
 
