@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import com.example.splashscreenaskit.ui.login.LoginActivity;
 
-public class MainActivity extends AppCompatActivity
+public class SplashScreen extends AppCompatActivity
 {
 
     private static int SPLASH_TIME_OUT = 3000;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void run()
             {
-                Intent logIntent = new Intent( MainActivity. this, LoginActivity.class );
+                Intent logIntent = new Intent( SplashScreen. this, MainScreen.class );
                 startActivity( logIntent);
                 finish();
             }
