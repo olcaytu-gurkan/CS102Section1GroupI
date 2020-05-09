@@ -10,15 +10,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class QuestionScreen extends AppCompatActivity
+public class AskScreen extends AppCompatActivity
 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity);
-
+        setContentView(R.layout.activity_ask_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
