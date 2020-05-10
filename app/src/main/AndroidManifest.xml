@@ -9,14 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".AskScreen"
-            android:label="@string/title_activity_ask_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".QuestionScreen"
-            android:label="@string/title_activity_question_screen"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".QuestionScreen"></activity>
+        <activity android:name=".AskScreen" />
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen"
