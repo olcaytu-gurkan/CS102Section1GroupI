@@ -63,6 +63,26 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
     {
         String text = parent.getItemAtPosition( position ).toString();
         Toast.makeText(parent.getContext(),text, Toast.LENGTH_LONG);
+
+        //Checks what the user has chosen for sorting the questions
+        if ( text.equals( "FAQ") ) //If the user chooses to sort by frequently asked questions
+        {
+            sortByFAQ();
+        }
+        else if ( text.equals( "Most Voted") ) //If the user chooses to sort by most vote questions
+        {
+            sortByMostVoted();
+        }
+    }
+
+    private void sortByMostVoted()
+    {
+       // System.out.println( "most voted");
+    }
+
+    private void sortByFAQ()
+    {
+        //System.out.println( "FAQ");
     }
 
     @Override
