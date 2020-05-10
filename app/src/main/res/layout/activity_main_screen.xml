@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:fitsSystemWindows="true"
+    android:visibility="visible"
     tools:context=".MainScreen">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/l2">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below= "@id/l2"
-        android:layout_centerHorizontal="true">
-        TextView:
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
         <TextView
-            android:text="@string/large_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize = "30dp"
-            />
-
+            android:text="@string/large_text"
+            android:textSize="30sp" />
     </ScrollView>
+
+    <Spinner
+        android:id="@+id/sort_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:entries="@array/sorts"
+        android:gravity="right|left"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <RelativeLayout
         android:id="@+id/l2"
@@ -33,13 +54,12 @@
             android:id="@+id/searchButton"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="fitStart"
-            app:srcCompat="@drawable/logo"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
             android:background="@android:color/darker_gray"
-            />
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,26 +70,29 @@
             android:layout_marginBottom="10dp"
             android:text="Tap our logo to search for questions"
             android:textColor="#FFFFFF"
-            android:textSize="25dp" />
+            android:textSize="25sp"  />
+
+
     </RelativeLayout>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:background="#17a588"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
+
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="AskIt"
-            android:textSize="35dp"
-            android:textColor="#FFFFFF"/>
-</androidx.appcompat.widget.Toolbar>
-            
-
+            android:textColor="#FFFFFF"
+            android:textSize="35dp" />
+    </androidx.appcompat.widget.Toolbar>
 
 
 </RelativeLayout>
