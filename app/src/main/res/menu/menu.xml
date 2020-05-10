@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:icon="@drawable/ic_drag_handle_black_24dp" app:showAsAction="always" android:title="">
+        <menu>
+            <item android:id="@+id/profile"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="Profile"/>
+            <item android:id="@+id/homescreen"
+                android:title="Home Screen"
+                android:icon="@drawable/home"/>
+            <item android:id="@+id/faq"
+                android:title="F.A.Q."
+                android:icon="@drawable/questions"/>
+            <item android:id="@+id/randomquestions"
+                android:title="Random Questions"
+                android:icon="@drawable/random"/>
+            <item android:id="@+id/notification"
+                android:title="Notifications"
+                android:icon="@drawable/notification"/>
+            <item android:title="Log Out" />
+        </menu>
+    </item>
+
+
+</menu>
