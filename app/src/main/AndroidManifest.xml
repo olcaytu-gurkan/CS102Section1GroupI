@@ -12,6 +12,7 @@
         <activity android:name=".Question"></activity>
         <activity android:name=".QuestionScreen" />
         <activity android:name=".AskScreen" />
+        <activity android:name=".AskingQuestionsScreen" />
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen"
