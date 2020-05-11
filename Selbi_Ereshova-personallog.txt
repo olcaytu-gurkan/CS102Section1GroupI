@@ -26,5 +26,8 @@ Started working on the main screen. Implementing my knowledge on how to move fro
 
 ### ~ 3 May - 7 May  ~
 Learning Firebase:70% acomplished. Did the 80% of front end of main menu. Started the question class.Debuging and learning at the same time.
+
+### ~ 8 May -  10 May  ~
+Coninued to learn firebase, how to sort the data using sortByChild method. Finished the front end for both  main menu and question screen. Strated working on the connections between the classes of our project by making texts clickable and adding buttons. 
 ****
 
