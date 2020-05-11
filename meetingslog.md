@@ -104,3 +104,15 @@ We distrubuted the work need to be done to accomplished our project.
 **ToDo:** Need to actually start coding.
 
 ****
+
+****
+### Meeting ~ Merging the main code parts( 11 May, 1.5 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+Merged the parts we have coded using GitHub. Had some problems about file names and Android Studio but we fixed them together.
+
+**ToDo:** Need to submit Detailed Design report tomorrow.
+
+****
