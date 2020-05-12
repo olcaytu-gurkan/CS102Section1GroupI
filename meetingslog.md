@@ -94,7 +94,7 @@ Nearly finished detailed design. We all have an idea about the implementation of
 **Present:** Everyone
 
 **Discussion:** 
-We distrubuted the work need to be done to accomplished our project.
+We distributed the work need to be done to accomplished our project.
 **Suleyman** = userprofile, sidebar screen
 **Selbi** = mainmenuscreen, questionscreen, sortable,firebase
 **Oguz** = question, answer, question database
@@ -114,5 +114,17 @@ We distrubuted the work need to be done to accomplished our project.
 Merged the parts we have coded using GitHub. Had some problems about file names and Android Studio but we fixed them together.
 
 **ToDo:** Need to submit Detailed Design report tomorrow.
+
+****
+
+****
+### Meeting ~ Finished the Detailed Design Report( 12 May, 2 hours)
+****
+**Present:** Everyone
+
+**Discussion:** 
+We discussed and completed our Detailed Design. We did the isA and hasA relationships between classes. 
+
+**ToDo:** We need to implement the project.
 
 ****
