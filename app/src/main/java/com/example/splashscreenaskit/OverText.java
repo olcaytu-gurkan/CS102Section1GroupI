@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class OverText extends AppCompatActivity implements View.OnClickListener {
     // properties
     private ImageButton pp;
-    private Profile profile;
+    private ProfilePage profile;
     private int upvote;
     private int downvote;
     private int vote;
@@ -22,15 +22,12 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
     private TextView username;
     private TextView karma;
 
-    private boolean isSelected;
-
-
     // constructors
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overtext);
-        profile = new Profile();
+        profile = new ProfilePage("ahmet", "123456");
         upvote = 0; // question.getUpvoteCount();
         downvote = 0;
         vote = upvote - downvote;
@@ -146,9 +143,5 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
 
     public void setVote(int n) {
         vote = n;
-    }
-
-    public boolean toggle( boolean vote) {
-        return !vote;
     }
 }

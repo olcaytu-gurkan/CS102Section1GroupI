@@ -13,6 +13,7 @@
         <activity android:name=".QuestionScreen"/>
         <activity android:name=".AskScreen" />
         <activity android:name=".AskingQuestionsScreen" />
+        <activity android:name=".OverText" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".MainScreen"
