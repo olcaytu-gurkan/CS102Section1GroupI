@@ -38,7 +38,7 @@ public class Register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), com.example.myapplication.MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), com.example.splashscreenaskit.MainActivity.class));
             finish();
         }
 
@@ -68,7 +68,7 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(Register.this, "Account created!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), com.example.myapplication.MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), com.example.splashscreenaskit.MainActivity.class));
                         }
                         else {
                             Toast.makeText(Register.this, "Error!", Toast.LENGTH_SHORT).show();
