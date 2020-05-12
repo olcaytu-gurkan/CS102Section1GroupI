@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.168"
-        app:srcCompat="@drawable/profilePicture" />
+        app:srcCompat="@drawable/profile_picture" />
 
     <TextView
         android:id="@+id/username"
