@@ -54,7 +54,7 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
     public void openAskScreen()
     {
         Intent intent;
-        intent = new Intent(this, AskScreen.class);
+        intent = new Intent(this, AskingQuestionsScreen.class);
         startActivity( intent );
     }
 

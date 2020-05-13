@@ -43,7 +43,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
         // listeners
         addButton.setOnClickListener(this);
-        searchButton.setOnClickListener(this);
+        //searchButton.setOnClickListener(this);
     }
 
     // methods
