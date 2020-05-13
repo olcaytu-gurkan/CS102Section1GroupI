@@ -9,12 +9,17 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class SearchResultScreen extends AppCompatActivity {
     private ArrayList<String> testbase;
     private Button submitButton;
     private ListView list;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
 
     @Override
@@ -59,6 +64,11 @@ public class SearchResultScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // We will add a new question to our question database, by taking the properties of question from AskScreen
+                rootNode =  FirebaseDatabase.getInstance();
+                reference = rootNode.getReference( "question");
+                reference.setValue( "Who created this app?");
+
+
             }
         });
     }
