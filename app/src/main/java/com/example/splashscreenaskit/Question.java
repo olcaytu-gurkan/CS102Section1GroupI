@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 public class Question extends AppCompatActivity
 {
+    Profile user;
+    String question;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

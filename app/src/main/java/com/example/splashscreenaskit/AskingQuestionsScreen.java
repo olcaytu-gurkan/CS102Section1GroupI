@@ -29,7 +29,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_asking_questions_screen);
 
         // initialize
         editText = (EditText) findViewById(R.id.editText);
