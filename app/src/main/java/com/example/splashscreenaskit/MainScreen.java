@@ -28,6 +28,7 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
         setContentView(R.layout.activity_main_screen);
 
         logo = (ImageButton) findViewById(R.id.searchButton);
+        /**
         logo.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -36,6 +37,7 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
                 openAskScreen();
             }
         });
+         */
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,16 +49,22 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         //specify the interface implementation
-        spinner.setOnItemSelectedListener(this);
+       // spinner.setOnItemSelectedListener(this);
 
 
     }
+    public void onButtonClick(View v){
+        Intent myIntent = new Intent(getBaseContext(),  AskingQuestionsScreen.class);
+        startActivity(myIntent);
+    }
+    /**
     public void openAskScreen()
     {
         Intent intent;
         intent = new Intent(this, AskingQuestionsScreen.class);
         startActivity( intent );
     }
+     */
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)

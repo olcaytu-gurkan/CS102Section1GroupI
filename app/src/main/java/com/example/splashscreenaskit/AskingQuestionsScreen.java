@@ -42,7 +42,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         tagsList = new ArrayList<String>();
 
         // listeners
-        addButton.setOnClickListener(this);
+        //addButton.setOnClickListener(this);
         //searchButton.setOnClickListener(this);
     }
 
