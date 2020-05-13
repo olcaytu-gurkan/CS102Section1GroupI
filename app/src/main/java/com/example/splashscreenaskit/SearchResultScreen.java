@@ -1,5 +1,6 @@
 package com.example.splashscreenaskit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,10 +26,10 @@ public class SearchResultScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_searchresult);
         testbase = new ArrayList<>();
         list = findViewById(R.id.listview); // Okay, we will assume that this is the similar question
-        submitButton = findViewById(R.id.button);
+        submitButton = findViewById(R.id.submit_for_answering);
         testbase.add("first"); // Don't have to this process for our similar question database, this is just for testing.
         testbase.add("second");
         testbase.add("third");
@@ -49,8 +50,9 @@ public class SearchResultScreen extends AppCompatActivity {
         testbase.add("third");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, testbase); // We will add our similar questions to this adapter
-        list.setAdapter(adapter);
+        //list.setAdapter(adapter);
 
+        /**
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,6 +61,7 @@ public class SearchResultScreen extends AppCompatActivity {
                 //startActivity( intent); // Going to open the question screen activity here.
             }
         });
+*/
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +70,16 @@ public class SearchResultScreen extends AppCompatActivity {
                 rootNode =  FirebaseDatabase.getInstance();
                 reference = rootNode.getReference( "question");
                 reference.setValue( "Who created this app?");
-
-
+                openMainMenu();
             }
-        });
+        }); 
+    }
+
+
+    private void openMainMenu()
+    {
+        Intent intent;
+        intent = new Intent(this, MainScreen.class);
+        startActivity( intent );
     }
 }

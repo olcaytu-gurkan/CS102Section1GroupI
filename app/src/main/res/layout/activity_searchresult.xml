@@ -24,13 +24,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Didn't find your answer?"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/submit_for_answering"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submit_for_answering"
         android:layout_width="259dp"
         android:layout_height="53dp"
         android:layout_marginBottom="16dp"

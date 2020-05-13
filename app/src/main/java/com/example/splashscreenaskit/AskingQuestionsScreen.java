@@ -43,10 +43,24 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
         // listeners
         //addButton.setOnClickListener(this);
-        //searchButton.setOnClickListener(this);
+        searchButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openSearchResultsScreen();
+            }
+        });
     }
 
     // methods
+    public void openSearchResultsScreen()
+    {
+        Intent intent;
+        intent = new Intent(this, SearchResultScreen.class);
+        startActivity( intent );
+    }
+
     public void onClick( View v) {
 
         /** if( v.getId() == addButton.getId()) {
@@ -95,4 +109,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     //   this.
     // }
     // }
+
+
+
 }
