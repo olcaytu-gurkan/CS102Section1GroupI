@@ -37,10 +37,13 @@ public class Register extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), com.example.splashscreenaskit.MainScreen.class));
-            finish();
-        }
+        //if (mAuth.getCurrentUser() != null) {
+        //    startActivity(new Intent(getApplicationContext(), com.example.splashscreenaskit.MainScreen.class));
+        //    finish();
+        //}
+        // These were the lines that caused problem. If user already in FirebaseAuth and when clicked sign up
+        // user was automatically sent to the main menu, which is not a good UI.
+        // Keeping this code here, just in case that we might want to change the way we navigate the user.
 
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
