@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SideBar"></activity>
+        <activity android:name=".SideBar"/>
         <activity android:name=".Question" />
         <activity android:name=".QuestionScreen" />
         <activity android:name=".AskScreen" />
