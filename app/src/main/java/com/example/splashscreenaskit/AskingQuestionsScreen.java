@@ -15,15 +15,15 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
-    private EditText editText;
-    private TextView addYourTags;
-    private EditText tagSpace;
-    private ImageButton addButton;
-    private TextView tvTags;
-    private Button searchButton;
-    private String allTags;
-    private ArrayList<String> tagsList;
-    private String question;
+    EditText editText;
+    TextView addYourTags;
+    EditText tagSpace;
+    ImageButton addButton;
+    TextView tvTags;
+    Button searchButton;
+    String allTags;
+    ArrayList<String> tagsList;
+    String question;
 
     // constructors
     @Override
@@ -32,38 +32,62 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_asking_questions_screen);
 
         // initialize
-        editText = findViewById(R.id.editText);
-        addYourTags = findViewById(R.id.addYourTags);
-        tagSpace = findViewById(R.id.tagSpace);
-        addButton = findViewById(R.id.addTag);
-        tvTags = findViewById(R.id.tv_tags);
-        searchButton = findViewById(R.id.searchButton);
+        editText = (EditText) findViewById(R.id.editText);
+        addYourTags = (TextView) findViewById(R.id.addYourTags);
+        tagSpace = (EditText) findViewById(R.id.tagSpace);
+        addButton = (ImageButton) findViewById(R.id.addTag);
+        tvTags = (TextView) findViewById(R.id.tv_tags);
+        searchButton = (Button) findViewById(R.id.searchButton);
         allTags = "";
         tagsList = new ArrayList<String>();
 
         // listeners
-        addButton.setOnClickListener(this);
-        searchButton.setOnClickListener(this);
-
+        //addButton.setOnClickListener(this);
+        searchButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openSearchResultsScreen();
+            }
+        });
     }
 
     // methods
+    public void openSearchResultsScreen()
+    {
+        Intent intent;
+        intent = new Intent(this, SearchResultScreen.class);
+        startActivity( intent );
+    }
+
     public void onClick( View v) {
 
-      if( v.getId() == addButton.getId()) {
-          for( int i = 0; i < tagsList.size(); i++) {
+        /** if( v.getId() == addButton.getId()) {
+         *  allTags += tagSpace.getText() + "   ";
+         *  tagsList.add( "" + tagSpace.getText());
+         *  tvTags.setText(allTags)
+         *  }
+         */
+
+        if( v.getId() == addButton.getId()) {
+            for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).equals("" + tagSpace.getText())) {
                     return;
                 }
-          }
-          allTags += tagSpace.getText() + "   ";
-          tagsList.add("" + tagSpace.getText());
-          tvTags.setText(allTags);
-      }
+            }
+            allTags += tagSpace.getText() + "   ";
+            tagsList.add("" + tagSpace.getText());
+            tvTags.setText(allTags);
+
+            for( int j = 0; j < tagsList.size(); j++) {
+                System.out.println(tagsList.get(j));
+            }
+        }
         else if( v.getId() == searchButton.getId()) {
 
             // GO TO SEARCH RESULTS SCREEN
-            // question = "" + editText.getText();
+            question = "" + editText.getText();
             // Intent intent;
             // intent = new Intent(this, OverText.class);
             // intent.putStringArrayListExtra("tags", tagsList);
@@ -85,4 +109,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     //   this.
     // }
     // }
+
+
+
 }

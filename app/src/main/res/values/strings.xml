@@ -119,7 +119,7 @@
         <item>Most Voted</item>
     </string-array>
 
-    
+
     <string name="profileName">\Name:</string>
     <string name="profileSurname" translatable="false">\Surname:</string>
 </resources>

@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.splashscreenaskit.R;
 
-public class MainActivity extends AppCompatActivity {
+public class SideBar extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

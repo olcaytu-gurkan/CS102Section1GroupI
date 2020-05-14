@@ -54,10 +54,10 @@
             android:id="@+id/searchButton"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:adjustViewBounds="true"
             android:background="@android:color/darker_gray"
+            android:onClick="onButtonClick"
             android:scaleType="fitStart"
             app:srcCompat="@drawable/logo" />
 

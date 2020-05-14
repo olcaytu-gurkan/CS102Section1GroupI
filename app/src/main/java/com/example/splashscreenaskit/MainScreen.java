@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,6 +22,8 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
 {
     private ImageButton logo;
     private Spinner spinner;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,6 +32,7 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
         setContentView(R.layout.activity_main_screen);
 
         logo = (ImageButton) findViewById(R.id.searchButton);
+
         logo.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -36,6 +41,7 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
                 openAskScreen();
             }
         });
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,16 +53,18 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         //specify the interface implementation
-        spinner.setOnItemSelectedListener(this);
+       // spinner.setOnItemSelectedListener(this);
 
 
     }
+
     public void openAskScreen()
     {
         Intent intent;
-        intent = new Intent(this, AskScreen.class);
+        intent = new Intent(this, AskingQuestionsScreen.class);
         startActivity( intent );
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)

@@ -9,12 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Question"/>
-        <activity android:name=".QuestionScreen"/>
+        <activity android:name=".SideBar"></activity>
+        <activity android:name=".Question" />
+        <activity android:name=".QuestionScreen" />
         <activity android:name=".AskScreen" />
-        <activity android:name=".AskingQuestionsScreen" />
+        <activity android:name=".Answer" />
+        <activity android:name=".Login" />
         <activity android:name=".OverText" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ProfilePage" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Register" />
+        <activity android:name=".SearchResultScreen" />
+        <activity android:name=".AskingQuestionsScreen" />
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen"
