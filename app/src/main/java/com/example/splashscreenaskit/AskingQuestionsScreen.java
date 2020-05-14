@@ -29,7 +29,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_asking_questions_screen);
 
         // initialize
         editText = findViewById(R.id.editText);
@@ -50,22 +50,16 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     // methods
     public void onClick( View v) {
 
-        if( v.getId() == addButton.getId()) {
-           allTags += tagSpace.getText() + "   ";
-           tagsList.add( "" + tagSpace.getText());
-           tvTags.setText(allTags);
-        }
-
-        if( v.getId() == addButton.getId()) {
-            for( int i = 0; i < tagsList.size(); i++) {
+      if( v.getId() == addButton.getId()) {
+          for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).equals("" + tagSpace.getText())) {
                     return;
                 }
-            }
-            allTags += tagSpace.getText() + "   ";
-            tagsList.add("" + tagSpace.getText());
-            tvTags.setText(allTags);
-        }
+          }
+          allTags += tagSpace.getText() + "   ";
+          tagsList.add("" + tagSpace.getText());
+          tvTags.setText(allTags);
+      }
         else if( v.getId() == searchButton.getId()) {
 
             // GO TO SEARCH RESULTS SCREEN
