@@ -18,5 +18,5 @@ This week I contributed to detail design report and expanded my knowledge about 
 After we have distributed the work amongst group members, I have started to learn Firebase to complete my part. Spent approximately 6-7 hours to learn and get used to Firebase. I have finished a Udacity course about Firebase and started to code log-in screen and sign-up screen. Total hour spent = 9-10. 
 
 ### ~ 4 - 10 May 2020 ~
-Learned and used Firebase Authentication for creating log-in and sign-up screen. Finished coding log-in and sign-up screen, but UI needs improvements. I will probably modify UI after finishing the core functionalities of the program. Also learned more about widgets in android to program Search Result Screen. Finished the backbone of that screen, but definitely need to complete it after we merge the code in one project. Total hour spent = 15-16 hours.
+Learned and used Firebase Authentication for creating log-in and sign-up screen. Finished coding log-in and sign-up screen, but UI needs improvements. I will probably modify UI after finishing the core functionalities of the program. Also learned more about widgets in android to program Search Result Screen. Finished the backbone of that screen,, but definitely need to complete it after we merge the code in one project. Total hour spent = 15-16 hours.
 ****
