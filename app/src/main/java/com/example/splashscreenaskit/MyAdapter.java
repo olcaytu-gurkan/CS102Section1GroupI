@@ -1,5 +1,6 @@
 package com.example.splashscreenaskit;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+
+    private Context context;
     private ArrayList<Question> mDataset;
 
     // Provide a reference to the views for each data item
