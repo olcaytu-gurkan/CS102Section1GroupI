@@ -27,16 +27,19 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener
+public class MainScreen extends AppCompatActivity
 {
     private ImageButton logo;
     private Spinner spinner;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-    ArrayList<Question> questionsList;
+
+    private ArrayList<Question> questionsList;
     private RecyclerView recyclerView;
+    private MyAdapter myAdapter;
+
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -72,50 +75,44 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
 
         //Setting up firebase
         rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference();
+        reference = FirebaseDatabase.getInstance().getReference().child("Question");
+        reference.addListenerForSingleValueEvent(valueEventListener);
 
-        //TODO: Display questions in listview( or recycle view)
-        reference.addValueEventListener(new ValueEventListener()
-        {
+        //Working with recycle view
+        recyclerView = findViewById(R.id.recycle_view);
+        recyclerView.setLayoutManager( new LinearLayoutManager(this));
+        questionsList = new ArrayList<>();
 
-            @Override
-            public void onDataChange(DataSnapshot snapshot)
-            {
-
-                questionsList = new ArrayList();
-                for (DataSnapshot postSnapshot : snapshot.getChildren())
-                {
-                    Question student = postSnapshot.getValue(Question.class);
-                    questionsList.add(student);
-                }
-                recyclerView.setAdapter(MyAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
-
-            }
-
-        });
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_view);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        // specify an adapter (see also next example)
-        mAdapter = new MyAdapter( questionsList );
-        recyclerView.setAdapter(mAdapter);
     }
 
+    //TODO: Display questions in listview( or recycle view)
+    ValueEventListener valueEventListener = new ValueEventListener()
+    {
         @Override
-        public void onItemSelected (AdapterView < ? > parent, View view,int position, long id)
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+        {
+            for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
+            {
+                Question student = postSnapshot.getValue(Question.class);
+                questionsList.add(student);
+            }
+            mAdapter = new MyAdapter(MainScreen.this, questionsList);
+            recyclerView.setAdapter(mAdapter);
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError)
+        {
+
+        }
+
+    };
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
         {
             String text = parent.getItemAtPosition(position).toString();
             Toast.makeText(parent.getContext(), text, Toast.LENGTH_LONG);
@@ -130,34 +127,25 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemS
             }
         }
 
-        private void sortByMostVoted ()
+        private void sortByMostVoted()
         {
             // System.out.println( "most voted");
         }
 
-        private void sortByFAQ ()
+        private void sortByFAQ()
         {
             //System.out.println( "FAQ");
         }
-        public void openAskScreen ()
+
+        public void openAskScreen()
         {
             Intent intent;
             intent = new Intent(this, AskingQuestionsScreen.class);
             startActivity(intent);
         }
 
-        @Override
-        public void onNothingSelected(AdapterView<?> parent)
-        {
-
-        }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture)
-    {
-
-    }
 }
+
 
 
 
