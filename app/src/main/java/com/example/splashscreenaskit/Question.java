@@ -63,9 +63,16 @@ public class Question extends AppCompatActivity
         return NumOfAns;
     }
 
-    public ArrayList<String> getTags()
+    public String getTags()
     {
-        return tags;
+        //Local variable
+        String tagString;
+
+        tagString = "";
+        for ( String s: tags )
+            tagString = tagString + " " + s;
+
+        return tagString;
     }
 
     public int getQuestionNum()

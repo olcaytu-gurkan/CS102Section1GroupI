@@ -36,7 +36,7 @@
             android:layout_below="@+id/OvertextLayout">
 
             <TextView
-                android:id="@+id/NumAns"
+                android:id="@+id/QuestNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Question  number" />
@@ -52,19 +52,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="tag1, tag2," />
-
             <TextView
-                android:id="@+id/UpvoteCount"
+                android:id="@+id/NumOfAns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="up 500" />
+                android:text="Number of answers" />
 
-            <TextView
-                android:id="@+id/DownvoteCount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="down 12"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
             </LinearLayout>
 
 </RelativeLayout>
