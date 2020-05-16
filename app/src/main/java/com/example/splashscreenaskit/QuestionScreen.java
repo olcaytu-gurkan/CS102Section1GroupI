@@ -14,4 +14,5 @@ public class QuestionScreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_screen);
     }
+    //TODO: Get answers with this specific question
 }
