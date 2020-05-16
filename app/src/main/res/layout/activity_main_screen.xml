@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,24 +9,22 @@
     android:fitsSystemWindows="true"
     android:visibility="visible"
     tools:context=".MainScreen">
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@id/l2">
+    android:layout_below="@id/l2"
+    android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/large_text"
-            android:textSize="30sp" />
-    </ScrollView>
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <Spinner
         android:id="@+id/sort_spinner"
@@ -40,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/scrollView2"
         tools:visibility="visible" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 
 
 
@@ -57,7 +56,6 @@
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
             android:background="@android:color/darker_gray"
-            android:onClick="onButtonClick"
             android:scaleType="fitStart"
             app:srcCompat="@drawable/logo" />
 
@@ -95,4 +93,4 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-</RelativeLayout>
+</RelativeLayout >

@@ -1,19 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
-    tools:context=".Question">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        app:cardElevation= "4dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is a question"
-        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintEnd_toEndOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/OvertextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/Overtext"
+                layout="@layout/activity_overtext"
+                android:layout_width="match_parent"
+                android:layout_height="125dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/OvertextLayout">
+
+            <TextView
+                android:id="@+id/NumAns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Question  number" />
+
+            <TextView
+                android:id="@+id/Question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Question" />
+
+            <TextView
+                android:id="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tag1, tag2," />
+
+            <TextView
+                android:id="@+id/UpvoteCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="up 500" />
+
+            <TextView
+                android:id="@+id/DownvoteCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="down 12"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            </LinearLayout>
+
+</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -72,7 +72,7 @@ public class SearchResultScreen extends AppCompatActivity {
                 reference.setValue( "Who created this app?");
                 openMainMenu();
             }
-        }); 
+        });
     }
 
 
