@@ -21,7 +21,7 @@ public class AnswerView extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer);
+        setContentView(R.layout.activity_answer_view);
         username = (TextView) findViewById(R.id.username);
         answer = (TextView) findViewById(R.id.answer);
         profileButton = (ImageButton) findViewById(R.id.profileButton);
