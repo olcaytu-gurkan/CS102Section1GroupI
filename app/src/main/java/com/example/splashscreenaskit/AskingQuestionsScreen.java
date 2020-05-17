@@ -115,7 +115,8 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
          return count;
      }
 
-     public void sendQuestions() {
-      //   for( Question q : getSnapshot)
+     public void sendQuestions()
+     {
+        return;
      }
 }

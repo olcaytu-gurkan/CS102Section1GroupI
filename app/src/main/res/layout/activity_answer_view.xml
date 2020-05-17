@@ -6,40 +6,51 @@
     android:layout_height="wrap_content"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/profileButton"
-                android:layout_width="5dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text= "Answer number: " />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/ansNum"
                 android:layout_width="285dp"
                 android:layout_height="33dp"
-                android:layout_weight="1"
-                android:text="profile" />
+                android:text= "Answer number" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/answer"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:text="answer" />
+            android:layout_height="wrap_content"
+            android:text="answer"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

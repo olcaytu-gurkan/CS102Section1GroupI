@@ -24,7 +24,7 @@ public class AnswerView extends AppCompatActivity
         setContentView(R.layout.activity_answer_view);
         username = (TextView) findViewById(R.id.username);
         answer = (TextView) findViewById(R.id.answer);
-        profileButton = (ImageButton) findViewById(R.id.profileButton);
+        //profileButton = (ImageButton) findViewById(R.id.profileButton);
         rootNode = FirebaseDatabase.getInstance();
         reference = FirebaseDatabase.getInstance().getReference();
 
