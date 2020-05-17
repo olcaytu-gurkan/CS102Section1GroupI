@@ -99,13 +99,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     //NOTE: IGNORE THE SAME TAG
 
-    /** public void compareTags( Questions ArrayList<Question>) {
+    /** public void compareTags( Questions ArrayList<QuestionRecyclerView>) {
      *    for( int i = 0; i < tagsList.size(); i++) {
      *        if( question.tagsList.get(i).equals( this.tagsList.get(i)))
      *    }
      */
 
-    // public void compareTags( Question question) {
+    // public void compareTags( QuestionRecyclerView question) {
     //   this.
     // }
     // }

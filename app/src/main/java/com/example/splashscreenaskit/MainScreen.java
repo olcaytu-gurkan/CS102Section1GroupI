@@ -3,8 +3,8 @@ package com.example.splashscreenaskit;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.splashscreenaskit.models.Answer;
+import com.example.splashscreenaskit.models.Question;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +21,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -34,7 +33,7 @@ public class MainScreen extends AppCompatActivity
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
-    private ArrayList<Question> questionsList;
+    private ArrayList<Question> questionsList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
 
@@ -75,14 +74,36 @@ public class MainScreen extends AppCompatActivity
 
         //Setting up firebase
         rootNode = FirebaseDatabase.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference().child("Question");
-        reference.addListenerForSingleValueEvent(valueEventListener);
+        reference = FirebaseDatabase.getInstance().getReference().child("Questions");
+        reference.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                questionsList = new ArrayList<>();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
+                {
+                    String question = (String) postSnapshot.child("Question").getValue();
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
+                    ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    Question newQuestion= new Question( question, answers, tags );
+                    questionsList.add(newQuestion );
+                }
+                mAdapter = new MyAdapter(MainScreen.this, questionsList);
+                recyclerView.setAdapter(mAdapter);
+                //questionsList.get(1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
+                Toast.makeText(MainScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        }); //Add listener
 
         //Working with recycle view
         recyclerView = findViewById(R.id.recycle_view);
-        recyclerView.setLayoutManager( new LinearLayoutManager(this));
-        questionsList = new ArrayList<>();
-
+        recyclerView.setLayoutManager( new LinearLayoutManager(this)); //set the layout of the contents, i.e. list of repeating views in the recycler view
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -90,28 +111,6 @@ public class MainScreen extends AppCompatActivity
 
     }
 
-    //TODO: Display questions in listview( or recycle view)
-    ValueEventListener valueEventListener = new ValueEventListener()
-    {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-        {
-            for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-            {
-                Question student = postSnapshot.getValue(Question.class);
-                questionsList.add(student);
-            }
-            mAdapter = new MyAdapter(MainScreen.this, questionsList);
-            recyclerView.setAdapter(mAdapter);
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError)
-        {
-
-        }
-
-    };
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
         {
             String text = parent.getItemAtPosition(position).toString();

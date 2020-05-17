@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class QuestionScreen extends AppCompatActivity
 {
-   private Question question;
+   private QuestionRecyclerView questionRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -14,5 +14,5 @@ public class QuestionScreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_screen);
     }
-    //TODO: Get answers with this specific question
+    //TODO: Get answers with this specific questionRecyclerView
 }
