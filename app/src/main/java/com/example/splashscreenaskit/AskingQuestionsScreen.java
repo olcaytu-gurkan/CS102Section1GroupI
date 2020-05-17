@@ -43,17 +43,17 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_asking_questions_screen);
 
         // initialize
-        editText = (EditText) findViewById(R.id.editText);
-        addYourTags = (TextView) findViewById(R.id.addYourTags);
-        tagSpace = (EditText) findViewById(R.id.tagSpace);
-        addButton = (ImageButton) findViewById(R.id.addTag);
-        tvTags = (TextView) findViewById(R.id.tv_tags);
-        searchButton = (Button) findViewById(R.id.searchButton);
+        editText = findViewById(R.id.editText);
+        addYourTags = findViewById(R.id.addYourTags);
+        tagSpace = findViewById(R.id.tagSpace);
+        addButton = findViewById(R.id.addTag);
+        tvTags = findViewById(R.id.tv_tags);
+        searchButton = findViewById(R.id.searchButton);
         allTags = "";
         tagsList = new ArrayList<String>();
 
         // listeners
-        //addButton.setOnClickListener(this);
+        addButton.setOnClickListener(this);
         searchButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -63,6 +63,9 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             }
         });
 
+        // database
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Questions");
     }
 
     // methods
@@ -75,13 +78,6 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     public void onClick( View v) {
 
-        /** if( v.getId() == addButton.getId()) {
-         *  allTags += tagSpace.getText() + "   ";
-         *  tagsList.add( "" + tagSpace.getText());
-         *  tvTags.setText(allTags)
-         *  }
-         */
-
         if( v.getId() == addButton.getId()) {
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).equals("" + tagSpace.getText())) {
@@ -91,22 +87,18 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             allTags += tagSpace.getText() + "   ";
             tagsList.add("" + tagSpace.getText());
             tvTags.setText(allTags);
-
-            for( int j = 0; j < tagsList.size(); j++) {
-                System.out.println(tagsList.get(j));
-            }
         }
-        else if( v.getId() == searchButton.getId()) {
+        // else if( v.getId() == searchButton.getId()) {
 
             // GO TO SEARCH RESULTS SCREEN
-            question = "" + editText.getText();
+            // question = "" + editText.getText();
             // Intent intent;
             // intent = new Intent(this, OverText.class);
             // intent.putStringArrayListExtra("tags", tagsList);
             // HOW DO I GET THE QUESTION???
             // intent.putExtra("question", question);
             // startActivity(intent);
-        }
+        //}
     }
 
     //NOTE: IGNORE THE SAME TAG
@@ -124,6 +116,6 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
      }
 
      public void sendQuestions() {
-        return;
+      //   for( Question q : getSnapshot)
      }
 }

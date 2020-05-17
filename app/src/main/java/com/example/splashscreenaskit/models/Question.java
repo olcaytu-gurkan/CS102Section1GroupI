@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class Question
 {
-    String question;
-    ArrayList<Answer> answers;
-    ArrayList<String> tags;
+    private String question;
+    private ArrayList<Answer> answers;
+    private ArrayList<String> tags;
 
     //Constructor
     public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag )
