@@ -51,6 +51,10 @@ public class Question
         else return  "";
     }
 
+    public ArrayList<String> getTagsList() {
+        return tags;
+    }
+
     public void setTags(ArrayList<String> tags)
     {
         this.tags = tags;

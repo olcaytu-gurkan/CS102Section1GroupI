@@ -8,7 +8,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.splashscreenaskit.models.Question;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -24,6 +31,10 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     String allTags;
     ArrayList<String> tagsList;
     String question;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+
 
     // constructors
     @Override
@@ -51,6 +62,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                 openSearchResultsScreen();
             }
         });
+
     }
 
     // methods
@@ -99,17 +111,19 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     //NOTE: IGNORE THE SAME TAG
 
-    /** public void compareTags( Questions ArrayList<QuestionRecyclerView>) {
-     *    for( int i = 0; i < tagsList.size(); i++) {
-     *        if( question.tagsList.get(i).equals( this.tagsList.get(i)))
-     *    }
-     */
+     public int compareTags( Question q) {
+         int count = 0;
+         for (int i = 0; i < tagsList.size(); i++) {
+             for (int j = 0; j < q.getTagsList().size(); j++) {
+                 if (this.tagsList.get(i).equals(q.getTagsList().get(j))) {
+                     count++;
+                 }
+             }
+         }
+         return count;
+     }
 
-    // public void compareTags( QuestionRecyclerView question) {
-    //   this.
-    // }
-    // }
-
-
-
+     public void sendQuestions() {
+        return;
+     }
 }
