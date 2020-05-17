@@ -7,12 +7,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.splashscreenaskit.models.Answer;
 import com.example.splashscreenaskit.models.Question;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -30,6 +33,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     Button searchButton;
     String allTags;
     ArrayList<String> tagsList;
+    ArrayList<Question> similar;
     String question;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -66,6 +70,36 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         // database
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
+        databaseReference.addValueEventListener(new ValueEventListener()
+        {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot )
+        {
+            similar = new ArrayList<>();
+            for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
+            {
+                //Retrieving data from realtime database and placing them in variables
+                ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
+                String question = (String) postSnapshot.child("Question").getValue();
+                ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                String questNum = (String) postSnapshot.getKey();
+                int numOfAns = answers.size();
+                Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
+                //Compare with tags with taglist
+                if ( compareTags( tags ) > 0 )
+                {
+                    similar.add( newQuestion );
+                }
+            }
+        }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
+
+            }
+
+    }); //Add listener
     }
 
     // methods
@@ -103,11 +137,11 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     //NOTE: IGNORE THE SAME TAG
 
-     public int compareTags( Question q) {
+     public int compareTags(  ArrayList<String> ar ) {
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {
-             for (int j = 0; j < q.getTagsList().size(); j++) {
-                 if (this.tagsList.get(i).equals(q.getTagsList().get(j))) {
+             for (int j = 0; j < ar.size(); j++) {
+                 if (this.tagsList.get(i).equals(ar.get(j))) {
                      count++;
                  }
              }

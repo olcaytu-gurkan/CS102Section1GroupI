@@ -6,17 +6,13 @@ import java.util.ArrayList;
 
 public class Question
 {
-<<<<<<< HEAD
+
     private String question;
     private ArrayList<Answer> answers;
     private ArrayList<String> tags;
-=======
-    String question;
-    ArrayList<Answer> answers;
-    ArrayList<String> tags;
     String questNum;
     int numOfAns;
->>>>>>> master
+
 
     //Constructor
     public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag, String questNum,  int numOfAns )
