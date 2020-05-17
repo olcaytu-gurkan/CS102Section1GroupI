@@ -3,6 +3,7 @@ package com.example.splashscreenaskit;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.splashscreenaskit.models.Answer;
 import com.example.splashscreenaskit.models.Question;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +33,7 @@ public class MainScreen extends AppCompatActivity
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
-    private ArrayList<Question> questionsList;
+    private ArrayList<Question> questionsList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
 
@@ -82,8 +83,11 @@ public class MainScreen extends AppCompatActivity
                 questionsList = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                 {
-                    Question newQuestionRecyclerView = postSnapshot.getValue(Question.class);//error here
-                    questionsList.add(newQuestionRecyclerView);
+                    String question = (String) postSnapshot.child("Question").getValue();
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
+                    ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    Question newQuestion= new Question( question, answers, tags );
+                    questionsList.add(newQuestion );
                 }
                 mAdapter = new MyAdapter(MainScreen.this, questionsList);
                 recyclerView.setAdapter(mAdapter);

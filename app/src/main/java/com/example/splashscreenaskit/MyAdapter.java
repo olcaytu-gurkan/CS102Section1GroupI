@@ -1,6 +1,7 @@
 package com.example.splashscreenaskit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public  class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView Question, QuestNum, NumOfAns,tags;
 
         public MyViewHolder(View v) {
@@ -35,6 +36,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             QuestNum = itemView.findViewById(R.id.QuestNum);
             tags = itemView.findViewById(R.id.tags);
             NumOfAns = itemView.findViewById(R.id.NumOfAns);
+
+           v.setOnClickListener( this);
+        }
+
+        public void onClick( View v)
+        {
+            Intent intent = new Intent( context, Question.class);
+            intent.putExtra( "Questions", QuestNum.getText().toString());
+            context.startActivity( intent);
         }
     }
 
@@ -44,8 +54,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
+        LayoutInflater inflator = LayoutInflater.from(context);
         // create a new view
-        View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_question, parent, false);
+        View v =  inflator.inflate(R.layout.activity_question, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }
