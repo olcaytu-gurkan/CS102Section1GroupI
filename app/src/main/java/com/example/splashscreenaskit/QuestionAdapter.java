@@ -12,13 +12,13 @@ import com.example.splashscreenaskit.models.Question;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
 
     private Context context;//
     private ArrayList<Question> mDataset;//
 
     //Constructor
-    public MyAdapter( Context c, ArrayList<Question> questions )
+    public QuestionAdapter(Context c, ArrayList<Question> questions )
     {
         this.context = c;
         this.mDataset = questions;
@@ -39,10 +39,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
            v.setOnClickListener( this);
         }
-
+        // When a question is clicked the user is directed to the question
+        // screen displaying that question with its answers
         public void onClick( View v)
         {
-            Intent intent = new Intent( context, Question.class);
+            Intent intent = new Intent( context, QuestionScreen.class);
             intent.putExtra( "Questions", QuestNum.getText().toString());
             context.startActivity( intent);
         }
@@ -70,7 +71,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         Question newQuestionRecyclerView = this.mDataset.get(position);
         holder.Question.setText( newQuestionRecyclerView.getQuestion());
         holder.tags.setText( newQuestionRecyclerView.getTags());
-
+        holder.NumOfAns.setText( Integer.toString(newQuestionRecyclerView.getNumOfAns()));
+        holder.QuestNum.setText(  newQuestionRecyclerView.getQuestNum());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

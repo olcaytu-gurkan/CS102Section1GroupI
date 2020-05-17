@@ -29,13 +29,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/QuestNum"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Question  number"
-                android:textSize="14dp"/>
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Question  number:  "
+                    android:textSize="14dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/QuestNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Question  number"
+                    android:textSize="14dp"/>
+        </LinearLayout>
             <TextView
                 android:id="@+id/Question"
                 android:layout_width="match_parent"
@@ -51,12 +62,22 @@
                 android:text="tag1, tag2,"
                 android:textColor="@android:color/darker_gray"
                 android:textStyle="italic" />
-            <TextView
-                android:id="@+id/NumOfAns"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Number of answers" />
-
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Answers: "
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/NumOfAns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Number of answers" />
+        </LinearLayout>
 
             </LinearLayout>
 
