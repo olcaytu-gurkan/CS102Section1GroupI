@@ -35,7 +35,7 @@ public class MainScreen extends AppCompatActivity
 
     private ArrayList<Question> questionsList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private MyAdapter myAdapter;
+    private QuestionAdapter questionAdapter;
 
     private RecyclerView.Adapter mAdapter;
 
@@ -83,13 +83,17 @@ public class MainScreen extends AppCompatActivity
                 questionsList = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                 {
+                    //Retrieving data from realtime database and placing them in variables
                     String question = (String) postSnapshot.child("Question").getValue();
                     ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
                     ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
-                    Question newQuestion= new Question( question, answers, tags );
+                    String questNum = (String) postSnapshot.getKey();
+                    int numOfAns = answers.size();
+                    Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
                     questionsList.add(newQuestion );
+
                 }
-                mAdapter = new MyAdapter(MainScreen.this, questionsList);
+                mAdapter = new QuestionAdapter(MainScreen.this, questionsList);
                 recyclerView.setAdapter(mAdapter);
                 //questionsList.get(1);
             }

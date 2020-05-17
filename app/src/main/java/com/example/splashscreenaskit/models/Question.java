@@ -9,13 +9,18 @@ public class Question
     String question;
     ArrayList<Answer> answers;
     ArrayList<String> tags;
+    String questNum;
+    int numOfAns;
 
     //Constructor
-    public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag )
+    public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag, String questNum,  int numOfAns )
     {
         this.question = question;
         this.answers = answers;
         this.tags = tag;
+        this.questNum = questNum;
+        this.numOfAns = numOfAns;
+
     }
     public Question(){
         tags = new ArrayList<>();
@@ -68,5 +73,25 @@ public class Question
     public void setAnswers(ArrayList<Answer> answers)
     {
         this.answers = answers;
+    }
+
+    public int getNumOfAns()
+    {
+        return numOfAns;
+    }
+
+    public void setNumOfAns(int numOfAns)
+    {
+        this.numOfAns = numOfAns;
+    }
+
+    public String getQuestNum()
+    {
+        return questNum;
+    }
+
+    public void setQuestNum(String questNum)
+    {
+        this.questNum = questNum;
     }
 }
