@@ -74,7 +74,28 @@ public class MainScreen extends AppCompatActivity
         //Setting up firebase
         rootNode = FirebaseDatabase.getInstance();
         reference = FirebaseDatabase.getInstance().getReference().child("Questions");
-        reference.addValueEventListener(valueEventListener); //Add listener
+        reference.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                questionsList = new ArrayList<>();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
+                {
+                    Question newQuestionRecyclerView = postSnapshot.getValue(Question.class);//error here
+                    questionsList.add(newQuestionRecyclerView);
+                }
+                mAdapter = new MyAdapter(MainScreen.this, questionsList);
+                recyclerView.setAdapter(mAdapter);
+                //questionsList.get(1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
+                Toast.makeText(MainScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        }); //Add listener
 
         //Working with recycle view
         recyclerView = findViewById(R.id.recycle_view);
@@ -86,30 +107,6 @@ public class MainScreen extends AppCompatActivity
 
     }
 
-    //TODO: Display questions in listview( or recycle view)
-    ValueEventListener valueEventListener = new ValueEventListener()
-    {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-        {
-            questionsList = new ArrayList<>();
-            for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-            {
-                Question newQuestionRecyclerView = postSnapshot.getValue(Question.class);//error here
-                questionsList.add(newQuestionRecyclerView);
-            }
-            mAdapter = new MyAdapter(MainScreen.this, questionsList);
-            recyclerView.setAdapter(mAdapter);
-            //questionsList.get(1);
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError)
-        {
-            Toast.makeText(MainScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
-        }
-
-    };
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
         {
             String text = parent.getItemAtPosition(position).toString();

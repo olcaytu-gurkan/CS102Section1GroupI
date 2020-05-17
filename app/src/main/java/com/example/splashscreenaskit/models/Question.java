@@ -17,6 +17,10 @@ public class Question
         this.answers = answers;
         this.tags = tag;
     }
+    public Question(){
+        tags = new ArrayList<>();
+        answers = new ArrayList<>();
+    }
 
     //Some get and set methods
 
@@ -36,11 +40,15 @@ public class Question
         String s;
 
         s = "";
-        for ( String st : tags )
+        if ( tags.size() > 0 )
         {
-            s = s+ " " + st;
+            for (String st : tags)
+            {
+                s = s + " " + st;
+            }
+            return s;
         }
-        return s;
+        else return  "";
     }
 
     public void setTags(ArrayList<String> tags)
