@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.splashscreenaskit.models.Answer;
@@ -23,6 +26,7 @@ public class QuestionScreen extends AppCompatActivity
    private String questNum;
    private FirebaseDatabase rootNode;
    private  DatabaseReference reference;
+   private  DatabaseReference ansReference;
    private String question;
    private ArrayList<Answer> answers;
    private ArrayList<String> tags;
@@ -31,6 +35,8 @@ public class QuestionScreen extends AppCompatActivity
    private RecyclerView.Adapter mAdapter;
    private AnswerAdapter answerAdapter;
    private QuestionRecyclerView clickedQuestion;
+   private Button submitButton;
+   private EditText newAnswer;
 
 
     @Override
@@ -66,6 +72,7 @@ public class QuestionScreen extends AppCompatActivity
                     System.out.println( ans); //Working
                     Answer newAnswer = new Answer( ans, i );
                     answers.add( newAnswer );
+                    numOfAns = i;
                 }
                 tags = (ArrayList<String>) dataSnapshot.child( "Tags").getValue();
                 System.out.println( tags);
@@ -79,6 +86,21 @@ public class QuestionScreen extends AppCompatActivity
             public void onCancelled(@NonNull DatabaseError databaseError)
             {
                 Toast.makeText(QuestionScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Make the submit button add another answer to the question
+        submitButton = (Button) findViewById(R.id.submitButton);
+        newAnswer = (EditText) findViewById(R.id.answer);
+        submitButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String addingAns = newAnswer.getText().toString();
+                ansReference = reference.child( "Answers");
+                ansReference.push().setValue( addingAns);
+                newAnswer.setText("");
             }
         });
     }

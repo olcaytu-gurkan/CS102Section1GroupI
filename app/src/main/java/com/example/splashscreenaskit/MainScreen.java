@@ -86,9 +86,19 @@ public class MainScreen extends AppCompatActivity
                     //Retrieving data from realtime database and placing them in variables
                     String question = (String) postSnapshot.child("Question").getValue();
                     ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
-                    ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    ArrayList<Answer> answers = new ArrayList<>();
+                    int i = 0;
+                    int numOfAns = 0;
+                    for (DataSnapshot postSnapshot1 : postSnapshot.child("Answers").getChildren())
+                    {
+                        i++;
+                        String ans = (String) postSnapshot1.getValue();
+                        System.out.println( ans);
+                        Answer newAnswer = new Answer( ans, i );
+                        answers.add( newAnswer );
+                        numOfAns = i;
+                    }
                     String questNum = (String) postSnapshot.getKey();
-                    int numOfAns = answers.size();
                     Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
                     questionsList.add(newQuestion );
 
