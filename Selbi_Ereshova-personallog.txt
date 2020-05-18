@@ -32,5 +32,15 @@ Coninued to learn firebase, how to sort the data using sortByChild method. Finis
 
 ### ~ 11 May -  13 May  ~
 So far the merging is going good. Had some minor problems but after discussion with my team mates we were able to solve the problems. Setting up real time firebase on our project and adding data collections.
+
+### ~ 14 May -  16 May  ~
+We finished merging our code successfully. Now continuing to work on our parts. Learning about recyclerview and reclerview adapters. Also watching YouTube vidoes on how to retrieve data from firebase and display on our screens using different views. So far implemetation is not going very well, having some errors.
+
+### ~ 17 May  ~
+Error identified and fixed. Now the recyclerViews are good to go:) Also connected some of the classes with firebase and retrieved the questions and  displayed them in main menu screen.
+
+### ~ 18 May  ~
+Displayed the answers of a clicked question in question screen. Learning about compound views to display the question with its own view inside the view of question screen.
 ****
+
 
