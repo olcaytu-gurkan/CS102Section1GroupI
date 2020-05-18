@@ -5,10 +5,10 @@ public class Answer
 
     //Properties
     String answer;
-    String ansNum;
+    int ansNum;
 
     //Constructor
-    public Answer( String answer, String ansNum)
+    public Answer( String answer, int ansNum)
     {
         this.answer = answer;
         this.ansNum = ansNum;
@@ -26,12 +26,12 @@ public class Answer
         this.answer = answer;
     }
 
-    public String getAnsNum()
+    public int getAnsNum()
     {
         return ansNum;
     }
 
-    public void setAnsNum(String ansNum)
+    public void setAnsNum( int ansNum)
     {
         this.ansNum = ansNum;
     }
