@@ -16,6 +16,13 @@ public class QuestionRecyclerView extends AppCompatActivity
     DatabaseReference reference;
     TextView qnum, quest, tg, ansnum;
 
+
+    public QuestionRecyclerView( String qnum, String question, String tags, String numOfAns)
+    {
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
