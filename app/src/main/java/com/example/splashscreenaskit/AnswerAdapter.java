@@ -55,7 +55,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHold
         // - replace the contents of the view with that element
         Answer answers = this.mDataset.get(position);
         holder.answer.setText( answers.getAnswer());
-        holder.ansNum.setText( Integer.toString( answers.getAnsNum() ) ); //Error here-----------------
+        holder.ansNum.setText( Integer.toString( answers.getAnsNum() ) ); //Error here----------------- fixed
     }
 
     // Return the size of your dataset (invoked by the layout manager)

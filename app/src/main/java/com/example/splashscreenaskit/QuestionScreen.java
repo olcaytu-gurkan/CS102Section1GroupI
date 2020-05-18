@@ -30,6 +30,7 @@ public class QuestionScreen extends AppCompatActivity
    private RecyclerView recyclerView;
    private RecyclerView.Adapter mAdapter;
    private AnswerAdapter answerAdapter;
+   private QuestionRecyclerView clickedQuestion;
 
 
     @Override
@@ -37,6 +38,7 @@ public class QuestionScreen extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_screen);
+        //clickedQuestion.setContentView( R.layout.activity_question);
 
         //Getting the key of the clicked question
         questNum = getIntent().getStringExtra("Questions");
