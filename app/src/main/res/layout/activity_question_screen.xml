@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:fitsSystemWindows="true"
-    android:visibility="visible">
+    android:visibility="visible"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -30,12 +31,44 @@
             android:textSize="35dp" />
     </androidx.appcompat.widget.Toolbar>
 
-    <include
-        android:id="@+id/question"
-        android:layout_below="@+id/toolbar"
-        layout="@layout/activity_question"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Question"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tag1, tag2,"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Answers: "
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/NumOfAns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number of answers" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/answering"
@@ -116,20 +149,7 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <Spinner
-            android:id="@+id/sort_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:entries="@array/sorts"
-            android:gravity="right|left"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/scrollView2"
-            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</RelativeLayout>
+</LinearLayout>
 
