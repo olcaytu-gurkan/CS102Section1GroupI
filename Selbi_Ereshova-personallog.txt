@@ -41,6 +41,9 @@ Error identified and fixed. Now the recyclerViews are good to go:) Also connecte
 
 ### ~ 18 May  ~
 Displayed the answers of a clicked question in question screen. Learning about compound views to display the question with its own view inside the view of question screen.
+
+### ~ 19 May, 01:28 am ~
+Displayed the question in question screen but without using compound views. Finally I can say that I am done with my part of our project. But I will be fixing minor errors and polishing our code after everything is working.
 ****
 
 
