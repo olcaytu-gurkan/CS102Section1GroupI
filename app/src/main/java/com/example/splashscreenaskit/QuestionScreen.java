@@ -1,16 +1,16 @@
 package com.example.splashscreenaskit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.splashscreenaskit.models.Answer;
 import com.example.splashscreenaskit.models.Question;
@@ -19,8 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -54,7 +52,7 @@ public class QuestionScreen extends AppCompatActivity
         //clickedQuestion.setContentView( R.layout.activity_question);
 
         //Getting the key of the clicked question
-        questNum = getIntent().getStringExtra("Questions");
+            questNum = getIntent().getStringExtra("Questions");
         System.out.println(questNum); //Working
         //Getting recyclerview
         recyclerView = findViewById(R.id.recycle_view);
