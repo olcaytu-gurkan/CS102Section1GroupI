@@ -79,13 +79,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                         similar.add( questNum);
                     }
                 }
-<<<<<<< HEAD
+
                 for( int i = 0; i < similar.size(); i++) {
                     System.out.println(similar.get(i));
                 }
-=======
+
                 System.out.println( similar);
->>>>>>> master
+
             }
 
             @Override
@@ -118,6 +118,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             }
 
             tvTags.setText(allTags);
+            tagSpace.setText("");
         }
 
         else if( v.getId() == searchButton.getId()) {
