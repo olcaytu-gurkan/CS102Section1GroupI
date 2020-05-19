@@ -44,6 +44,9 @@ Displayed the answers of a clicked question in question screen. Learning about c
 
 ### ~ 19 May, 01:28 am ~
 Displayed the question in question screen but without using compound views. Finally I can say that I am done with my part of our project. But I will be fixing minor errors and polishing our code after everything is working.
+
+### ~ 19 May, 21:20 am ~
+Made the questions in main menu appear be sortred by how frequently they have been asked. Working with team mates to finish everything up polishing our code. Everything is going great so far
 ****
 
 
