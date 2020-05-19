@@ -79,9 +79,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                         similar.add( questNum);
                     }
                 }
+<<<<<<< HEAD
                 for( int i = 0; i < similar.size(); i++) {
                     System.out.println(similar.get(i));
                 }
+=======
+                System.out.println( similar);
+>>>>>>> master
             }
 
             @Override
