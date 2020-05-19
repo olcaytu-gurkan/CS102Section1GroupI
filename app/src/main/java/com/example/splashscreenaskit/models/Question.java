@@ -10,19 +10,20 @@ public class Question
     private String question;
     private ArrayList<Answer> answers;
     private ArrayList<String> tags;
-    String questNum;
-    int numOfAns;
+    private String questNum;
+    private int numOfAns;
+    private Long timesAsked;
 
 
     //Constructor
-    public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag, String questNum,  int numOfAns )
+    public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag, String questNum,  int numOfAns, Long timesAsked )
     {
         this.question = question;
         this.answers = answers;
         this.tags = tag;
         this.questNum = questNum;
         this.numOfAns = numOfAns;
-
+        this.timesAsked = timesAsked;
     }
     public Question(){
         tags = new ArrayList<>();
@@ -95,5 +96,15 @@ public class Question
     public void setQuestNum(String questNum)
     {
         this.questNum = questNum;
+    }
+
+    public Long getTimesAsked()
+    {
+        return timesAsked;
+    }
+
+    public void setTimesAsked( Long timesAsked)
+    {
+        this.timesAsked = timesAsked;
     }
 }

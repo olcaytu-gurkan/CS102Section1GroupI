@@ -74,6 +74,7 @@ public class QuestionScreen extends AppCompatActivity
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
                 System.out.println(question); //Working
+                Long timesAsked = (Long) dataSnapshot.child( "Number of times asked").getValue();
                 for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren())
                 {
                     i++;
@@ -84,7 +85,7 @@ public class QuestionScreen extends AppCompatActivity
 
                 tags = (ArrayList<String>) dataSnapshot.child("Tags").getValue();
                 numOfAns = answers.size();
-                Question newQuestion = new Question(question, answers, tags, questNum, numOfAns);
+                Question newQuestion = new Question(question, answers, tags, questNum, numOfAns, timesAsked);
                 mAdapter = new AnswerAdapter(QuestionScreen.this, answers);
                 recyclerView.setAdapter(mAdapter);
 

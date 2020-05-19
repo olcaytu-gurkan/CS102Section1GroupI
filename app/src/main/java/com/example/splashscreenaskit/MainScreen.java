@@ -1,6 +1,7 @@
 package com.example.splashscreenaskit;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.example.splashscreenaskit.models.Answer;
@@ -9,9 +10,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,11 +28,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainScreen extends AppCompatActivity
 {
     private ImageButton logo;
-    private Spinner spinner;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -38,6 +41,7 @@ public class MainScreen extends AppCompatActivity
     private QuestionAdapter questionAdapter;
 
     private RecyclerView.Adapter mAdapter;
+    private Query query;
 
 
     @Override
@@ -61,22 +65,16 @@ public class MainScreen extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Creating a spinner that would allow the users to sort by most voted or frequently asked
-        spinner = (Spinner) findViewById(R.id.sort_spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sorts, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-        //specify the interface implementation
-        // spinner.setOnItemSelectedListener(this);
+        //Working with recycle view
+        recyclerView = findViewById(R.id.recycle_view);
+        recyclerView.setLayoutManager( new LinearLayoutManager(this)); //set the layout of the contents, i.e. list of repeating views in the recycler view
 
         //Setting up firebase
         rootNode = FirebaseDatabase.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference().child("Questions");
-        reference.addValueEventListener(new ValueEventListener()
+        query = FirebaseDatabase.getInstance().getReference().child("Questions").orderByChild( "Number of times asked");
+        query.addListenerForSingleValueEvent(new ValueEventListener()
         {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
@@ -87,6 +85,7 @@ public class MainScreen extends AppCompatActivity
                     String question = (String) postSnapshot.child("Question").getValue();
                     ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
                     ArrayList<Answer> answers = new ArrayList<>();
+                    Long timesAsked =(Long) postSnapshot.child( "Number of times asked").getValue();
                     int i = 0;
                     int numOfAns = 0;
                     for (DataSnapshot postSnapshot1 : postSnapshot.child("Answers").getChildren())
@@ -99,13 +98,14 @@ public class MainScreen extends AppCompatActivity
                         numOfAns = i;
                     }
                     String questNum = (String) postSnapshot.getKey();
-                    Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
+                    Question newQuestion= new Question( question, answers, tags, questNum, numOfAns, timesAsked );
                     questionsList.add(newQuestion );
-
                 }
                 mAdapter = new QuestionAdapter(MainScreen.this, questionsList);
                 recyclerView.setAdapter(mAdapter);
-                //questionsList.get(1);
+
+                //Reversing the arraylist of Question so we will get the questions in descending order based on how many times they have been asked
+                Collections.reverse( questionsList);
             }
 
             @Override
@@ -114,6 +114,8 @@ public class MainScreen extends AppCompatActivity
                 Toast.makeText(MainScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
         }); //Add listener
+
+
 
         //Working with recycle view
         recyclerView = findViewById(R.id.recycle_view);
