@@ -92,7 +92,8 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         // if addButton is pressed, gets only nonrepeated tags into tagsList
         if( v.getId() == addButton.getId()) {
             for( int i = 0; i < tagsList.size(); i++) {
-                if( tagsList.get(i).equals("#" + tagSpace.getText()) || tagsList.get(i).equals( "" + tagSpace.getText())) {
+                if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
+                        || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
                     return;
                 }
             }
