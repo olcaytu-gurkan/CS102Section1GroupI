@@ -12,7 +12,6 @@
         <activity android:name=".SideBar"/>
         <activity android:name=".QuestionScreen" />
         <activity android:name=".AskScreen" />
-        <activity android:name=".AnswerView" />
         <activity android:name=".Login" />
         <activity android:name=".OverText" />
         <activity android:name=".ProfilePage" />

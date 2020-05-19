@@ -22,6 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * This screen shows the user a clicked question with its previous answers and allows him to add new questions
+ */
 public class QuestionScreen extends AppCompatActivity
 {
     private String questNum;
@@ -31,14 +34,11 @@ public class QuestionScreen extends AppCompatActivity
     private String question;
     private ArrayList<Answer> answers;
     private ArrayList<String> tags;
-    private String tagString;
     private int numOfAns;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
-    private AnswerAdapter answerAdapter;
     private Button submitButton;
     private EditText newAnswer;
-    private TextView textQuestNumber;
     private TextView textQuestion;
     private TextView textNumOfAns;
     private TextView textTags;
@@ -48,10 +48,10 @@ public class QuestionScreen extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_screen);
-        //clickedQuestion.setContentView( R.layout.activity_question);
 
         //Getting the key of the clicked question
-            questNum = getIntent().getStringExtra("Questions");
+        questNum = getIntent().getStringExtra("Questions");
+
         //Getting recyclerview
         recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -127,5 +127,4 @@ public class QuestionScreen extends AppCompatActivity
             }
         });
     }
-
 }
