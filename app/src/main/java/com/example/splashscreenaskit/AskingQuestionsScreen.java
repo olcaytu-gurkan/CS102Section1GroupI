@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,60 +57,38 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
         // listeners
         addButton.setOnClickListener(this);
-        searchButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                openSearchResultsScreen();
-            }
-        });
+        searchButton.setOnClickListener(this);
 
         // database
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
-        databaseReference.addValueEventListener(new ValueEventListener()
-        {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot )
-        {
-            similar = new ArrayList<>();
-            for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-            {
-                //Retrieving data from realtime database and placing them in variables
-                ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
-                String question = (String) postSnapshot.child("Question").getValue();
-                ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
-                String questNum = (String) postSnapshot.getKey();
-                int numOfAns = answers.size();
-                Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
-                //Compare with tags with taglist
-                if ( compareTags( tags ) > 0 )
-                {
-                    similar.add( newQuestion );
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
+                similar = new ArrayList<>();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //Retrieving data from realtime database and placing them in variables
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
+                    String question = (String) postSnapshot.child("Question").getValue();
+                    ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    String questNum = (String) postSnapshot.getKey();
+                    int numOfAns = answers.size();
+                    Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
+                    //Compare with tags with taglist
+                    if ( compareTags( tags ) > 0 ) {
+                        similar.add( newQuestion );
+                    }
                 }
             }
-        }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
-
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
-
-    }); //Add listener
+        }); //Add listener
     }
 
     // methods
-    public void openSearchResultsScreen()
-    {
-        Intent intent;
-        intent = new Intent(this, SearchResultScreen.class);
-        startActivity( intent );
-    }
-
     public void onClick( View v) {
-
         if( v.getId() == addButton.getId()) {
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).equals("" + tagSpace.getText())) {
@@ -122,17 +99,18 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             tagsList.add("" + tagSpace.getText());
             tvTags.setText(allTags);
         }
-        // else if( v.getId() == searchButton.getId()) {
+
+        else if( v.getId() == searchButton.getId()) {
 
             // GO TO SEARCH RESULTS SCREEN
-            // question = "" + editText.getText();
-            // Intent intent;
-            // intent = new Intent(this, OverText.class);
-            // intent.putStringArrayListExtra("tags", tagsList);
-            // HOW DO I GET THE QUESTION???
-            // intent.putExtra("question", question);
-            // startActivity(intent);
-        //}
+            question = "" + editText.getText();
+            Intent intent;
+            intent = new Intent(this, SearchResultScreen.class);
+            intent.putExtra("questions", similar);
+            intent.putExtra("user_question", question);
+            intent.putStringArrayListExtra("tags", tagsList);
+            startActivity(intent);
+        }
     }
 
     //NOTE: IGNORE THE SAME TAG
@@ -147,10 +125,5 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
              }
          }
          return count;
-     }
-
-     public void sendQuestions()
-     {
-        return;
      }
 }
