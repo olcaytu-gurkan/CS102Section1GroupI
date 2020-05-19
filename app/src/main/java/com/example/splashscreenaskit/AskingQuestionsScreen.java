@@ -34,11 +34,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     String question;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-<<<<<<< HEAD
-    int tmp;
-=======
-    int tmp = 0;
->>>>>>> master
+
 
 
 
@@ -110,13 +106,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
                         || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
-<<<<<<< HEAD
+
                     tagSpace.setText("");
                     System.out.println( tagsList);
                     return;
-=======
-                    System.out.println( "OOPS" );
->>>>>>> master
+
+
+
                 }
             }
 
@@ -124,14 +120,12 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             if( ("" + tagSpace.getText()).length() > 0 && ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
                 allTags += ("" + tagSpace.getText()).toLowerCase() + "   ";
                 tagsList.add(("" + tagSpace.getText()).toLowerCase());
-                tmp = 2;
             }
 
             // else, add #
             else {
                 allTags += ("#" + tagSpace.getText() + "   ").toLowerCase();
                 tagsList.add(("#" + tagSpace.getText()).toLowerCase());
-                tmp = 3;
             }
 
             tvTags.setText(allTags);
