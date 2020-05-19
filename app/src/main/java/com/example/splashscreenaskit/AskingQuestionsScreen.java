@@ -36,6 +36,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     String question;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    int tmp;
 
 
 
@@ -75,17 +76,10 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                     // int numOfAns = answers.size();
                     // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
                     //Compare with tags with taglist
-                    if ( compareTags( tags ) > 0 ) {
+                    if ( compareTags( tags ) >= 0 ) {
                         similar.add( questNum);
                     }
                 }
-
-                for( int i = 0; i < similar.size(); i++) {
-                    System.out.println(similar.get(i));
-                }
-
-                System.out.println( similar);
-
             }
 
             @Override
@@ -120,6 +114,8 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
             tvTags.setText(allTags);
             tagSpace.setText("");
+
+            System.out.println( similar);
         }
 
         else if( v.getId() == searchButton.getId()) {
@@ -138,11 +134,11 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     // hashtag bug, until the first number (covid 19 --> covid 18)
     // upper lower case
     // TODO: fix the bugs in the line above
-     public int compareTags(  ArrayList<String> ar ) {
+     public int compareTags(  ArrayList<String> ar) {
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {
              for (int j = 0; j < ar.size(); j++) {
-                 if (this.tagsList.get(i).equals(ar.get(j))) {
+                 if (this.tagsList.get(i).toLowerCase().equals(ar.get(j).toLowerCase())) {
                      count++;
                  }
              }
