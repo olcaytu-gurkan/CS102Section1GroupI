@@ -101,6 +101,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
                         || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
+                    tagSpace.setText("");
                     return;
                 }
             }
