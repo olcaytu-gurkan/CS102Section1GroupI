@@ -11,8 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.splashscreenaskit.models.Answer;
-import com.example.splashscreenaskit.models.Question;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +34,11 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     String question;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+<<<<<<< HEAD
     int tmp;
+=======
+    int tmp = 0;
+>>>>>>> master
 
 
 
@@ -63,6 +65,9 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         // database
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
+
+
+        /**
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
@@ -70,6 +75,8 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     //Retrieving data from realtime database and placing them in variables
                     ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    //tags.add( postSnapshot.child("Tags").getValue().toString());
+                    System.out.println(tags);
                     // String question = (String) postSnapshot.child("Question").getValue();
                     // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
                     String questNum = (String) postSnapshot.getKey();
@@ -80,12 +87,20 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                         similar.add( questNum);
                     }
                 }
+<<<<<<< HEAD
+=======
+                similar.add( "RAN");
+                similar.add( "oops");
+               // System.out.println( similar);
+
+>>>>>>> master
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         }); //Add listener
+         */
     }
 
     // methods
@@ -95,9 +110,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
                         || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
+<<<<<<< HEAD
                     tagSpace.setText("");
                     System.out.println( tagsList);
                     return;
+=======
+                    System.out.println( "OOPS" );
+>>>>>>> master
                 }
             }
 
@@ -105,12 +124,14 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             if( ("" + tagSpace.getText()).length() > 0 && ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
                 allTags += ("" + tagSpace.getText()).toLowerCase() + "   ";
                 tagsList.add(("" + tagSpace.getText()).toLowerCase());
+                tmp = 2;
             }
 
             // else, add #
             else {
                 allTags += ("#" + tagSpace.getText() + "   ").toLowerCase();
                 tagsList.add(("#" + tagSpace.getText()).toLowerCase());
+                tmp = 3;
             }
 
             tvTags.setText(allTags);
@@ -130,6 +151,36 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             intent.putStringArrayListExtra("tags", tagsList);
             startActivity(intent);
         }
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
+                similar = new ArrayList<>();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //Retrieving data from realtime database and placing them in variables
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    //tags.add( postSnapshot.child("Tags").getValue().toString());
+                    System.out.println(tags);
+                    // String question = (String) postSnapshot.child("Question").getValue();
+                    // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    String questNum = (String) postSnapshot.getKey();
+                    // int numOfAns = answers.size();
+                    // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
+                    //Compare with tags with taglist
+                    if ( compareTags( tags ) > 0 ) {
+                        similar.add( questNum);
+                    }
+                }
+                similar.add( "RAN");
+                similar.add( "oops");
+                // System.out.println( similar);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        }); //Add listener
+
     }
 
     // hashtag bug, until the first number (covid 19 --> covid 18)

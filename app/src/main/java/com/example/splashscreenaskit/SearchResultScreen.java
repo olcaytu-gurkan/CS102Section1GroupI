@@ -54,7 +54,7 @@ public class SearchResultScreen extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                 {
                     //Retrieving data from realtime database and placing them in variables
-                    if (sendedQuestions.contains(postSnapshot.getValue())) {
+                    if (sendedQuestions.contains(postSnapshot.getKey())) {
                         String question = (String) postSnapshot.child("Question").getValue();
                         ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
                         ArrayList<Answer> answers = new ArrayList<>();
