@@ -11,8 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.splashscreenaskit.models.Answer;
-import com.example.splashscreenaskit.models.Question;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -66,16 +64,18 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
                 similar = new ArrayList<>();
+                ArrayList<String> tags = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     //Retrieving data from realtime database and placing them in variables
-                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    //ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    tags.add( postSnapshot.child("Tags").getValue().toString());
                     // String question = (String) postSnapshot.child("Question").getValue();
                     // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
                     String questNum = (String) postSnapshot.getKey();
                     // int numOfAns = answers.size();
                     // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
                     //Compare with tags with taglist
-                    if ( compareTags( tags ) > 0 ) {
+                    if ( compareTags( tags ) >= 0 ) {
                         similar.add( questNum);
                     }
                 }
@@ -134,7 +134,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {
              for (int j = 0; j < ar.size(); j++) {
-                 if (this.tagsList.get(i).equals(ar.get(j))) {
+                 if (this.tagsList.get(i).toLowerCase().equals(ar.get(j).toLowerCase())) {
                      count++;
                  }
              }
