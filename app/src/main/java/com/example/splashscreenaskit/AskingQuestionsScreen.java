@@ -96,12 +96,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                 if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
                         || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
                     tagSpace.setText("");
+                    System.out.println( tagsList);
                     return;
                 }
             }
 
             // if first character is #, don't add #
-            if( ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
+            if( ("" + tagSpace.getText()).length() > 0 && ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
                 allTags += ("" + tagSpace.getText()).toLowerCase() + "   ";
                 tagsList.add(("" + tagSpace.getText()).toLowerCase());
             }
@@ -133,6 +134,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     // hashtag bug, until the first number (covid 19 --> covid 18)
     // upper lower case
+    // blank tagSpace --> crash
     // TODO: fix the bugs in the line above
      public int compareTags(  ArrayList<String> ar) {
          int count = 0;
