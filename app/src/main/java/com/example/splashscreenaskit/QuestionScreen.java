@@ -36,7 +36,6 @@ public class QuestionScreen extends AppCompatActivity
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private AnswerAdapter answerAdapter;
-    private QuestionRecyclerView clickedQuestion;
     private Button submitButton;
     private EditText newAnswer;
     private TextView textQuestNumber;
@@ -53,7 +52,6 @@ public class QuestionScreen extends AppCompatActivity
 
         //Getting the key of the clicked question
             questNum = getIntent().getStringExtra("Questions");
-        System.out.println(questNum); //Working
         //Getting recyclerview
         recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -71,7 +69,6 @@ public class QuestionScreen extends AppCompatActivity
                 int i = 0;
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
-                System.out.println(question); //Working
                 Long timesAsked = (Long) dataSnapshot.child( "Number of times asked").getValue();
                 for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren())
                 {

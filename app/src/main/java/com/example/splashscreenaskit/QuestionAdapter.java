@@ -12,6 +12,10 @@ import com.example.splashscreenaskit.models.Question;
 
 import java.util.ArrayList;
 
+/**
+ * An recyclerview adapter for displaying the list of questions in main menu and search results screen
+ */
+
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
 
     private Context context;//

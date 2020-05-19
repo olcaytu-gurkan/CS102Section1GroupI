@@ -14,35 +14,32 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * This is the main menu where the user can see the most frequently asked questions and choose to view them
+ * with their answers or choose to ask a new question by clicking on the logo.
+ */
 public class MainScreen extends AppCompatActivity
 {
     private ImageButton logo;
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
-
     private ArrayList<Question> questionsList = new ArrayList<>();
     private RecyclerView recyclerView;
     private QuestionAdapter questionAdapter;
-
     private RecyclerView.Adapter mAdapter;
     private Query query;
-
+    private FirebaseDatabase rootNode;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -69,16 +66,22 @@ public class MainScreen extends AppCompatActivity
         recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager( new LinearLayoutManager(this)); //set the layout of the contents, i.e. list of repeating views in the recycler view
 
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
+
         //Setting up firebase
+        //Getting the questions from firebase and sorting them according to how frequent they have been asked
         rootNode = FirebaseDatabase.getInstance();
         query = FirebaseDatabase.getInstance().getReference().child("Questions").orderByChild( "Number of times asked");
         query.addListenerForSingleValueEvent(new ValueEventListener()
         {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 questionsList = new ArrayList<>();
+                //iterating through all questions ( later we will update this so it will iterate through most asked 15-20 questions)
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                 {
                     //Retrieving data from realtime database and placing them in variables
@@ -88,11 +91,12 @@ public class MainScreen extends AppCompatActivity
                     Long timesAsked =(Long) postSnapshot.child( "Number of times asked").getValue();
                     int i = 0;
                     int numOfAns = 0;
+
+                    //Getting the answers of the question
                     for (DataSnapshot postSnapshot1 : postSnapshot.child("Answers").getChildren())
                     {
                         i++;
                         String ans = (String) postSnapshot1.getValue();
-                        System.out.println( ans);
                         Answer newAnswer = new Answer( ans, i );
                         answers.add( newAnswer );
                         numOfAns = i;
@@ -114,51 +118,13 @@ public class MainScreen extends AppCompatActivity
                 Toast.makeText(MainScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
         }); //Add listener
-
-
-
-        //Working with recycle view
-        recyclerView = findViewById(R.id.recycle_view);
-        recyclerView.setLayoutManager( new LinearLayoutManager(this)); //set the layout of the contents, i.e. list of repeating views in the recycler view
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
-
     }
-
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-        {
-            String text = parent.getItemAtPosition(position).toString();
-            Toast.makeText(parent.getContext(), text, Toast.LENGTH_LONG);
-
-            //Checks what the user has chosen for sorting the questions
-            if (text.equals("FAQ")) //If the user chooses to sort by frequently asked questions
-            {
-                sortByFAQ();
-            } else if (text.equals("Most Voted")) //If the user chooses to sort by most vote questions
-            {
-                sortByMostVoted();
-            }
-        }
-
-        private void sortByMostVoted()
-        {
-            // System.out.println( "most voted");
-        }
-
-        private void sortByFAQ()
-        {
-            //System.out.println( "FAQ");
-        }
-
-        public void openAskScreen()
-        {
-            Intent intent;
-            intent = new Intent(this, AskingQuestionsScreen.class);
-            startActivity(intent);
-        }
-
+    public void openAskScreen()
+    {
+        Intent intent;
+        intent = new Intent(this, AskingQuestionsScreen.class);
+        startActivity(intent);
+    }
 }
 
 

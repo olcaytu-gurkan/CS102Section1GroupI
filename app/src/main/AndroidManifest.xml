@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SideBar"/>
-        <activity android:name=".QuestionRecyclerView" />
         <activity android:name=".QuestionScreen" />
         <activity android:name=".AskScreen" />
         <activity android:name=".AnswerView" />
