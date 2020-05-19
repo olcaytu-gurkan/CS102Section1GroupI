@@ -92,12 +92,24 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         // if addButton is pressed, gets only nonrepeated tags into tagsList
         if( v.getId() == addButton.getId()) {
             for( int i = 0; i < tagsList.size(); i++) {
-                if( tagsList.get(i).equals("" + tagSpace.getText())) {
+                if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
+                        || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
                     return;
                 }
             }
-            allTags += tagSpace.getText() + "   ";
-            tagsList.add("#" + tagSpace.getText());
+
+            // if first character is #, don't add #
+            if( ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
+                allTags += ("" + tagSpace.getText()).toLowerCase() + "   ";
+                tagsList.add(("" + tagSpace.getText()).toLowerCase());
+            }
+
+            // else, add #
+            else {
+                allTags += ("#" + tagSpace.getText() + "   ").toLowerCase();
+                tagsList.add(("#" + tagSpace.getText()).toLowerCase());
+            }
+
             tvTags.setText(allTags);
         }
 
@@ -115,6 +127,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     }
 
     // hashtag bug, until the first number (covid 19 --> covid 18)
+    // upper lower case
     // TODO: fix the bugs in the line above
      public int compareTags(  ArrayList<String> ar ) {
          int count = 0;
