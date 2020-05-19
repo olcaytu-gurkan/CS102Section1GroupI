@@ -61,24 +61,26 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         // database
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
+
+
+        /**
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
                 similar = new ArrayList<>();
-                ArrayList<String> tags = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     //Retrieving data from realtime database and placing them in variables
-                    //ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
-                    tags.add( postSnapshot.child("Tags").getValue().toString());
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    //tags.add( postSnapshot.child("Tags").getValue().toString());
+                    System.out.println(tags);
                     // String question = (String) postSnapshot.child("Question").getValue();
                     // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
                     String questNum = (String) postSnapshot.getKey();
                     // int numOfAns = answers.size();
                     // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
                     //Compare with tags with taglist
-                    if ( compareTags( tags ) >= 0 ) {
+                    if ( compareTags( tags ) > 0 ) {
                         similar.add( questNum);
-
                     }
                 }
                 similar.add( "RAN");
@@ -91,6 +93,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         }); //Add listener
+         */
     }
 
     // methods
@@ -132,6 +135,36 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             intent.putStringArrayListExtra("tags", tagsList);
             startActivity(intent);
         }
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
+                similar = new ArrayList<>();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //Retrieving data from realtime database and placing them in variables
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    //tags.add( postSnapshot.child("Tags").getValue().toString());
+                    System.out.println(tags);
+                    // String question = (String) postSnapshot.child("Question").getValue();
+                    // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    String questNum = (String) postSnapshot.getKey();
+                    // int numOfAns = answers.size();
+                    // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
+                    //Compare with tags with taglist
+                    if ( compareTags( tags ) > 0 ) {
+                        similar.add( questNum);
+                    }
+                }
+                similar.add( "RAN");
+                similar.add( "oops");
+                // System.out.println( similar);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        }); //Add listener
+
     }
 
     // hashtag bug, until the first number (covid 19 --> covid 18)
@@ -139,7 +172,6 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     // TODO: fix the bugs in the line above
      public int compareTags(  ArrayList<String> ar ) {
          int count = 0;
-         System.out.println( tmp);
          for (int i = 0; i < tagsList.size(); i++) {
              for (int j = 0; j < ar.size(); j++) {
                  if (this.tagsList.get(i).toLowerCase().equals(ar.get(j).toLowerCase())) {
