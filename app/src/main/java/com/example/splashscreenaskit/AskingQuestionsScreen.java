@@ -32,7 +32,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     Button searchButton;
     String allTags;
     ArrayList<String> tagsList;
-    ArrayList<Question> similar;
+    ArrayList<String> similar;
     String question;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -68,15 +68,15 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                 similar = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     //Retrieving data from realtime database and placing them in variables
-                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
-                    String question = (String) postSnapshot.child("Question").getValue();
-                    ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    // String question = (String) postSnapshot.child("Question").getValue();
+                    // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
                     String questNum = (String) postSnapshot.getKey();
-                    int numOfAns = answers.size();
-                    Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
+                    // int numOfAns = answers.size();
+                    // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
                     //Compare with tags with taglist
                     if ( compareTags( tags ) > 0 ) {
-                        similar.add( newQuestion );
+                        similar.add( questNum);
                     }
                 }
             }
@@ -89,6 +89,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     // methods
     public void onClick( View v) {
+        // if addButton is pressed, gets only nonrepeated tags into tagsList
         if( v.getId() == addButton.getId()) {
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).equals("" + tagSpace.getText())) {
@@ -96,7 +97,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                 }
             }
             allTags += tagSpace.getText() + "   ";
-            tagsList.add("" + tagSpace.getText());
+            tagsList.add("#" + tagSpace.getText());
             tvTags.setText(allTags);
         }
 
@@ -106,15 +107,15 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             question = "" + editText.getText();
             Intent intent;
             intent = new Intent(this, SearchResultScreen.class);
-            intent.putExtra("questions", similar);
+            intent.putStringArrayListExtra("question_numbers", similar);
             intent.putExtra("user_question", question);
             intent.putStringArrayListExtra("tags", tagsList);
             startActivity(intent);
         }
     }
 
-    //NOTE: IGNORE THE SAME TAG
-
+    // hashtag bug, until the first number (covid 19 --> covid 18)
+    // TODO: fix the bugs in the line above
      public int compareTags(  ArrayList<String> ar ) {
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {
