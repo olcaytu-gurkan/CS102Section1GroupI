@@ -3,13 +3,15 @@ package com.example.splashscreenaskit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.splashscreenaskit.models.Answer;
 import com.example.splashscreenaskit.models.Question;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,12 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class SearchResultScreen extends AppCompatActivity {
-    private ArrayList<String> testbase;
     private Button submitButton;
-    private ListView listView;
+    private RecyclerView recyclerView;
     private ArrayList<String> sendedQuestions;
-    private ArrayList<String> similarQuestions;
+    private ArrayList<Question> similarQuestions;
     private ArrayList<Question> refQuestions;
+    private RecyclerView.Adapter mAdapter;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -34,11 +36,11 @@ public class SearchResultScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchresult);
-        testbase = new ArrayList<>();
         refQuestions = new ArrayList<>();
         sendedQuestions = getIntent().getStringArrayListExtra("question_numbers");
-        listView = findViewById(R.id.list1); // Okay, we will assume that this is the similar question
-        similarQuestions = new ArrayList<>();
+        recyclerView = findViewById(R.id.recycler2); // Okay, we will assume that this is the similar question
+        recyclerView.setLayoutManager( new LinearLayoutManager(this));
+        //similarQuestions = new ArrayList<>();
         submitButton = findViewById(R.id.submit_for_answering);
 
 
@@ -48,21 +50,44 @@ public class SearchResultScreen extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                for (int i = 0; i < sendedQuestions.size(); i++) {
-                    similarQuestions.add( dataSnapshot.child(sendedQuestions.get(i)).child("Question").getValue().toString());
+                similarQuestions = new ArrayList<>();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
+                {
+                    //Retrieving data from realtime database and placing them in variables
+                    if (sendedQuestions.contains(postSnapshot.getValue())) {
+                        String question = (String) postSnapshot.child("Question").getValue();
+                        ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                        ArrayList<Answer> answers = new ArrayList<>();
+                        Long timesAsked = (Long) postSnapshot.child("Number of times asked").getValue();
+                        int i = 0;
+                        int numOfAns = 0;
+                        for (DataSnapshot postSnapshot1 : postSnapshot.child("Answers").getChildren()) {
+                            i++;
+                            String ans = (String) postSnapshot1.getValue();
+                            System.out.println(ans);
+                            Answer newAnswer = new Answer(ans, i);
+                            answers.add(newAnswer);
+                            numOfAns = i;
+                        }
+                        String questNum = (String) postSnapshot.getKey();
+                        Question newQuestion = new Question(question, answers, tags, questNum, numOfAns, timesAsked);
+                        similarQuestions.add(newQuestion);
+                    }
                 }
+                mAdapter = new QuestionAdapter(SearchResultScreen.this, similarQuestions);
+                recyclerView.setAdapter(mAdapter);
             }
 
             @Override
-
             public void onCancelled(@NonNull DatabaseError databaseError)
             {
+                Toast.makeText(SearchResultScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, similarQuestions); // We will add our similar questions to this adapter
-        listView.setAdapter(adapter);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, similarQuestions); // We will add our similar questions to this adapter
+        //listView.setAdapter(adapter);
 
 
         /*
