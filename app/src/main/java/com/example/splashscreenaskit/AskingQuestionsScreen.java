@@ -34,6 +34,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     String question;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    int tmp = 0;
 
 
 
@@ -77,9 +78,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                     //Compare with tags with taglist
                     if ( compareTags( tags ) >= 0 ) {
                         similar.add( questNum);
+
                     }
                 }
-                System.out.println( similar);
+                similar.add( "RAN");
+                similar.add( "oops");
+               // System.out.println( similar);
+
             }
 
             @Override
@@ -95,7 +100,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
                         || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
-                    return;
+                    System.out.println( "OOPS" );
                 }
             }
 
@@ -103,12 +108,14 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             if( ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
                 allTags += ("" + tagSpace.getText()).toLowerCase() + "   ";
                 tagsList.add(("" + tagSpace.getText()).toLowerCase());
+                tmp = 2;
             }
 
             // else, add #
             else {
                 allTags += ("#" + tagSpace.getText() + "   ").toLowerCase();
                 tagsList.add(("#" + tagSpace.getText()).toLowerCase());
+                tmp = 3;
             }
 
             tvTags.setText(allTags);
@@ -132,6 +139,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     // TODO: fix the bugs in the line above
      public int compareTags(  ArrayList<String> ar ) {
          int count = 0;
+         System.out.println( tmp);
          for (int i = 0; i < tagsList.size(); i++) {
              for (int j = 0; j < ar.size(); j++) {
                  if (this.tagsList.get(i).toLowerCase().equals(ar.get(j).toLowerCase())) {
