@@ -22,18 +22,18 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
-    EditText editText;
-    TextView addYourTags;
-    EditText tagSpace;
-    ImageButton addButton;
-    TextView tvTags;
-    Button searchButton;
-    String allTags;
-    ArrayList<String> tagsList;
-    ArrayList<String> similar;
-    String question;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    private EditText editText;
+    private TextView addYourTags;
+    private EditText tagSpace;
+    private ImageButton addButton;
+    private TextView tvTags;
+    private Button searchButton;
+    private String allTags;
+    private ArrayList<String> tagsList;
+    private ArrayList<String> similar;
+    private String question;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
     int tmp = 0;
 
 
@@ -62,38 +62,6 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
 
-
-        /**
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
-                similar = new ArrayList<>();
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //Retrieving data from realtime database and placing them in variables
-                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
-                    //tags.add( postSnapshot.child("Tags").getValue().toString());
-                    System.out.println(tags);
-                    // String question = (String) postSnapshot.child("Question").getValue();
-                    // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
-                    String questNum = (String) postSnapshot.getKey();
-                    // int numOfAns = answers.size();
-                    // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
-                    //Compare with tags with taglist
-                    if ( compareTags( tags ) > 0 ) {
-                        similar.add( questNum);
-                    }
-                }
-                similar.add( "RAN");
-                similar.add( "oops");
-               // System.out.println( similar);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        }); //Add listener
-         */
     }
 
     // methods

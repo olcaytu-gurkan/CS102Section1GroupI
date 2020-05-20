@@ -85,41 +85,14 @@ public class SearchResultScreen extends AppCompatActivity {
             }
         });
 
-
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, similarQuestions); // We will add our similar questions to this adapter
-        //listView.setAdapter(adapter);
-
-
-        /*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Intent intent = new Intent( this, testbase.get( position).getClass()); // I want to call QuestionScreen class of our question here. Not sure how to do it.
-                // It would be healthier to try after we merge the code.
-                //startActivity( intent); // Going to open the question screen activity here.
-
-                Intent intent = new Intent( context, QuestionScreen.class);
-                intent.putExtra( "Questions", QuestNum.getText().toString());
-                context.startActivity( intent);
-            }
-        });
-        */
-
-
-
-
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // We will add a new question to our question database, by taking the properties of question from AskScreen
-                rootNode =  FirebaseDatabase.getInstance();
-                reference = rootNode.getReference( "question");
-                reference.setValue( "Who created this app?");
                 openMainMenu();
             }
         });
     }
-
 
     private void openMainMenu()
     {

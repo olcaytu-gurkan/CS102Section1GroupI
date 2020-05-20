@@ -25,9 +25,9 @@ public class Question
         this.numOfAns = numOfAns;
         this.timesAsked = timesAsked;
     }
-    public Question(){
+    public Question(String hello, ArrayList<Answer> answers, ArrayList<String> tag, String questNum, Integer o, Object timesAsked){
         tags = new ArrayList<>();
-        answers = new ArrayList<>();
+        this.answers = new ArrayList<>();
     }
 
     //Some get and set methods
