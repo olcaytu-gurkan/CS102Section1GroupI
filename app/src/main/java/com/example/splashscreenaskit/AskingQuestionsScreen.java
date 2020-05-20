@@ -96,6 +96,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
             // GO TO SEARCH RESULTS SCREEN
             question = "" + editText.getText();
+            System.out.println( question);
             Intent intent;
             intent = new Intent(this, SearchResultScreen.class);
             intent.putStringArrayListExtra("question_numbers", similar);

@@ -30,6 +30,10 @@ public class SearchResultScreen extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    private String newQuestion;
+    private ArrayList<String> newTags;
+    private String lastQuestionNum;
+    private int newQuestionNum;
 
 
     @Override
@@ -37,12 +41,16 @@ public class SearchResultScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchresult);
         refQuestions = new ArrayList<>();
+
+        //Getting data from asking questions screen
         sendedQuestions = getIntent().getStringArrayListExtra("question_numbers");
+        newQuestion = getIntent().getStringExtra( "user_question" );
+        newTags = getIntent().getStringArrayListExtra( "tags");
+
         recyclerView = findViewById(R.id.recycler2); // Okay, we will assume that this is the similar question
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
         //similarQuestions = new ArrayList<>();
         submitButton = findViewById(R.id.submit_for_answering);
-
 
         reference = FirebaseDatabase.getInstance().getReference().child("Questions");
         reference.addValueEventListener(new ValueEventListener()
@@ -73,6 +81,7 @@ public class SearchResultScreen extends AppCompatActivity {
                         Question newQuestion = new Question(question, answers, tags, questNum, numOfAns, timesAsked);
                         similarQuestions.add(newQuestion);
                     }
+                    lastQuestionNum = postSnapshot.getKey().toString();
                 }
                 mAdapter = new QuestionAdapter(SearchResultScreen.this, similarQuestions);
                 recyclerView.setAdapter(mAdapter);
@@ -89,6 +98,11 @@ public class SearchResultScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // We will add a new question to our question database, by taking the properties of question from AskScreen
+                newQuestionNum = Integer.parseInt( lastQuestionNum ) + 1;
+                reference.child( Integer.toString(newQuestionNum)  ).child( "Question").setValue( newQuestion );
+                reference.child( Integer.toString(newQuestionNum)  ).child( "Number of times asked").setValue( 1);
+               // reference.child( Integer.toString(newQuestionNum)  ).child( "Answers").setValue();
+                reference.child( Integer.toString(newQuestionNum)  ).child( "Tags").setValue( newTags);
                 openMainMenu();
             }
         });
