@@ -19,4 +19,8 @@ After we have distributed the work amongst group members, I have started to lear
 
 ### ~ 4 - 10 May 2020 ~
 Learned and used Firebase Authentication for creating log-in and sign-up screen. Finished coding log-in and sign-up screen, but UI needs improvements. I will probably modify UI after finishing the core functionalities of the program. Also learned more about widgets in android to program Search Result Screen. Finished the backbone of that screen,, but definitely need to complete it after we merge the code in one project. Total hour spent = 15-16 hours.
+
+### ~ 11 - 20 May 2020 ~
+After Asking Question Screen is finished, I finished Search Result Screen. Fixed major bugs in Asking Question Screen. Changed the little things in UI. Polished some code. Learned more about the databases in order to finish my tasks. Total hour spent = 13-14 hours.
+
 ****
