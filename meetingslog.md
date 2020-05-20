@@ -23,7 +23,7 @@ We have discussed project ideas. Each one of us came up with at least one projec
 **ToDo:** Need to discuss our ideas with Mr.Davenport
 
 ****
-### Meeting ~ Project proposal group work (25.04.2020, 2 hours)
+### Meeting ~ Project proposal group work (25.02.2020, 2 hours)
 ****
 **Present:** Everyone except 1 member _**Absent:**_ Selbi Ereshova
 
@@ -36,8 +36,95 @@ We have written the project proposal.
 **Present:** Everyone 
 
 **Discussion:** 
-since Mr.Davenport didn’t like any of our ideas we decided to go with the most entertaining and challenging project ideas- piano teaching app ( Emirhan’s idea )
+Since Mr.Davenport didn’t like any of our ideas we decided to go with the most entertaining and challenging project ideas- piano teaching app (Emirhan’s idea)
 
 **ToDo:** Again need to discuss our ideas with Mr.Davenport
 ****
+
+****
+### Meeting ~ Created the UI for our program. (23 March, 3 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+Decided the UI for our program. We did the "art" phase of it.
+
+**ToDo:** We have to finish our report.
+
+****
+
+****
+### Meeting ~ Finishing UI report (1 May, 2 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+We wrote and modified our UI report.
+
+**ToDo:** Each group member has to learn Android Studio until the next stage of the project.
+
+****
+
+****
+### Meeting ~ Sketched the outline of our detailed design (23 April, 2.5 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+Decided the main classes and objects and properties.
+
+**ToDo:** We need to complete "has a" and "is a" relationships.
+****
+
+****
+### Meeting ~ Finishing the detailed design(26 April, 2 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+Nearly finished detailed design. We all have an idea about the implementation of the app right now.
+
+**ToDo:** Distribute the work amongst group members.
+
+****
+
+****
+### Meeting ~ Distributing the workload( 1 May, 1 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+We distributed the work need to be done to accomplished our project.
+**Suleyman** = userprofile, sidebar screen
+**Selbi** = mainmenuscreen, questionscreen, sortable,firebase
+**Oguz** = question, answer, question database
+**Olcaytu** = login screen, signup screen,searchresultscreen, firebase
+**Emirhan** = searchengine, tag, overtext
+
+**ToDo:** Need to actually start coding.
+
+****
+
+****
+### Meeting ~ Merging the main code parts( 11 May, 1.5 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+Merged the parts we have coded using GitHub. Had some problems about file names and Android Studio but we fixed them together.
+
+**ToDo:** Need to submit Detailed Design report tomorrow.
+
+****
+
+****
+### Meeting ~ Finished the Detailed Design Report( 12 May, 2 hours)
+****
+**Present:** Everyone
+
+**Discussion:** 
+We discussed and completed our Detailed Design. We did the isA and hasA relationships between classes. 
+
+**ToDo:** We need to implement the project.
+
 ****

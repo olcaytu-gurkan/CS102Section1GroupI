@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "894030905043",
+    "firebase_url": "https://askit-5b3c5.firebaseio.com",
+    "project_id": "askit-5b3c5",
+    "storage_bucket": "askit-5b3c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894030905043:android:9f1dbb744dcdbed659de26",
+        "android_client_info": {
+          "package_name": "com.example.splashscreenaskit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894030905043-7e296ivn2o2nbe2hjjvb5ugc1fknue9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOEYdwiTae8g40DInMZphsVc0ee8AgT-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894030905043-7e296ivn2o2nbe2hjjvb5ugc1fknue9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

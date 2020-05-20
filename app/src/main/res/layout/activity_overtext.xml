@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.splashscreenaskit.OverText">
+
+    <ImageButton
+        android:id="@+id/profileXML"
+        android:layout_width="39dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.168"
+        app:srcCompat="@drawable/profile_picture" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick=""
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/profileXML"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toEndOf="@+id/profileXML"
+        app:layout_constraintTop_toTopOf="@+id/profileXML"
+        tools:ignore="OnClick" />
+
+    <ImageButton
+        android:id="@+id/upvoteButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@android:drawable/arrow_up_float"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <ImageButton
+        android:id="@+id/downvoteButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@android:drawable/arrow_down_float"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/upvoteButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/upvoteButton"
+        app:layout_constraintTop_toBottomOf="@+id/upvoteButton"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <TextView
+        android:id="@+id/karma"
+        android:layout_width="73dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/downvoteButton"
+        app:layout_constraintEnd_toEndOf="@+id/upvoteButton"
+        app:layout_constraintStart_toStartOf="@+id/downvoteButton"
+        app:layout_constraintTop_toBottomOf="@+id/upvoteButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
