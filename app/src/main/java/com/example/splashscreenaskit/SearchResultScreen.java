@@ -86,7 +86,7 @@ public class SearchResultScreen extends AppCompatActivity {
                     }
                     lastQuestionNum = postSnapshot.getKey().toString();
                 }
-                mAdapter = new QuestionAdapter(SearchResultScreen.this, similarQuestions);
+                mAdapter = new QuestionAdapter(SearchResultScreen.this, similarQuestions, "yes");
                 recyclerView.setAdapter(mAdapter);
             }
 

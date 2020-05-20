@@ -42,7 +42,7 @@ public class QuestionScreen extends AppCompatActivity
     private TextView textQuestion;
     private TextView textNumOfAns;
     private TextView textTags;
-    private boolean has;
+    private String screen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,6 +52,7 @@ public class QuestionScreen extends AppCompatActivity
 
         //Getting the key of the clicked question
         questNum = getIntent().getStringExtra("Questions");
+        screen = getIntent().getStringExtra( "IncrementOrNot");
 
         //Getting recyclerview
         recyclerView = findViewById(R.id.recycle_view);
@@ -63,20 +64,20 @@ public class QuestionScreen extends AppCompatActivity
         //Setting up firebase to retrieve the question
         reference = FirebaseDatabase.getInstance().getReference().child("Questions").child(questNum);
 
-        reference.addValueEventListener(new ValueEventListener()
+        reference.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                has = false;
-                //Check if the question has previous answers
-                if (dataSnapshot.hasChild("Answers")) {
-                    has = true;
-                }
+
                 int i = 0;
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
                 Long timesAsked = (Long) dataSnapshot.child( "Number of times asked").getValue();
+                if ( screen.equals("yes"))
+                {
+                    reference.child( "Number of times asked").setValue( timesAsked + 1);
+                }
                 for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren())
                 {
                     i++;
