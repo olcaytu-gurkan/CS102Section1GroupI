@@ -42,6 +42,7 @@ public class QuestionScreen extends AppCompatActivity
     private TextView textQuestion;
     private TextView textNumOfAns;
     private TextView textTags;
+    private boolean has;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,11 +62,17 @@ public class QuestionScreen extends AppCompatActivity
 
         //Setting up firebase to retrieve the question
         reference = FirebaseDatabase.getInstance().getReference().child("Questions").child(questNum);
+
         reference.addValueEventListener(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
+                has = false;
+                //Check if the question has previous answers
+                if (dataSnapshot.hasChild("Answers")) {
+                    has = true;
+                }
                 int i = 0;
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
@@ -116,14 +123,14 @@ public class QuestionScreen extends AppCompatActivity
             public void onClick(View v)
             {
                 String addingAns = newAnswer.getText().toString();
-                if ( !addingAns.equals("") )
-                {
-                    ansReference = reference.child("Answers");
-                    ansReference.push().setValue(addingAns);
-                    newAnswer.setText("");
-                }
-                else
-                    Toast.makeText(QuestionScreen.this, "Please write your answer first", Toast.LENGTH_SHORT).show();
+
+                    if (!addingAns.equals(""))
+                    {
+                        ansReference = reference.child("Answers");
+                        ansReference.push().setValue(addingAns);
+                        newAnswer.setText("");
+                    } else
+                        Toast.makeText(QuestionScreen.this, "Please write your answer first", Toast.LENGTH_SHORT).show();
             }
         });
     }
