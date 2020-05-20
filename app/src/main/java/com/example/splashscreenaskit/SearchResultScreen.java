@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 
 public class SearchResultScreen extends AppCompatActivity {
     private Button submitButton;
+    private TextView textView;
     private RecyclerView recyclerView;
     private ArrayList<String> sendedQuestions;
     private ArrayList<Question> similarQuestions;
@@ -46,6 +48,7 @@ public class SearchResultScreen extends AppCompatActivity {
         sendedQuestions = getIntent().getStringArrayListExtra("question_numbers");
         newQuestion = getIntent().getStringExtra( "user_question" );
         newTags = getIntent().getStringArrayListExtra( "tags");
+        textView = findViewById(R.id.textView);
 
         recyclerView = findViewById(R.id.recycler2); // Okay, we will assume that this is the similar question
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
