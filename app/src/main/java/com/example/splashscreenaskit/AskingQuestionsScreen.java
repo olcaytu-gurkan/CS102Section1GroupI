@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
-<<<<<<< HEAD
+    /**
     EditText editText;
     TextView addYourTags;
     EditText tagSpace;
@@ -35,8 +35,10 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     String question;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    */
 
-=======
+
+
     private EditText editText;
     private TextView addYourTags;
     private EditText tagSpace;
@@ -50,7 +52,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     int tmp = 0;
->>>>>>> master
+
 
 
 
@@ -78,7 +80,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
 
-<<<<<<< HEAD
+
 
         /**
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -100,13 +102,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                         similar.add( questNum);
                     }
                 }
-<<<<<<< HEAD
-=======
+
+
                 similar.add( "RAN");
                 similar.add( "oops");
                // System.out.println( similar);
 
->>>>>>> master
+
             }
 
             @Override
@@ -114,8 +116,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             }
         }); //Add listener
          */
-=======
->>>>>>> master
+
     }
 
     // methods
