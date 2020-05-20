@@ -22,6 +22,25 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
+<<<<<<< HEAD
+=======
+    /**
+    EditText editText;
+    TextView addYourTags;
+    EditText tagSpace;
+    ImageButton addButton;
+    TextView tvTags;
+    Button searchButton;
+    String allTags;
+    ArrayList<String> tagsList;
+    ArrayList<String> similar;
+    String question;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    */
+
+
+>>>>>>> master
 
     private EditText editText;
     private TextView addYourTags;
@@ -86,13 +105,13 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                         similar.add( questNum);
                     }
                 }
-<<<<<<< HEAD
-=======
+
+
                 similar.add( "RAN");
                 similar.add( "oops");
                // System.out.println( similar);
 
->>>>>>> master
+
             }
 
             @Override

@@ -48,7 +48,7 @@ public class SearchResultScreen extends AppCompatActivity {
         sendedQuestions = getIntent().getStringArrayListExtra("question_numbers");
         newQuestion = getIntent().getStringExtra( "user_question" );
         newTags = getIntent().getStringArrayListExtra( "tags");
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.textView39);
 
         recyclerView = findViewById(R.id.recycler2); // Okay, we will assume that this is the similar question
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
