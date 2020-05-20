@@ -30,6 +30,10 @@ public class SearchResultScreen extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    private String newQuestion;
+    private ArrayList<String> newTags;
+    private String lastQuestionNum;
+    private int newQuestionNum;
 
 
     @Override
@@ -37,12 +41,16 @@ public class SearchResultScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchresult);
         refQuestions = new ArrayList<>();
+
+        //Getting data from asking questions screen
         sendedQuestions = getIntent().getStringArrayListExtra("question_numbers");
+        newQuestion = getIntent().getStringExtra( "user_question" );
+        newTags = getIntent().getStringArrayListExtra( "tags");
+
         recyclerView = findViewById(R.id.recycler2); // Okay, we will assume that this is the similar question
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
         //similarQuestions = new ArrayList<>();
         submitButton = findViewById(R.id.submit_for_answering);
-
 
         reference = FirebaseDatabase.getInstance().getReference().child("Questions");
         reference.addValueEventListener(new ValueEventListener()
@@ -73,6 +81,7 @@ public class SearchResultScreen extends AppCompatActivity {
                         Question newQuestion = new Question(question, answers, tags, questNum, numOfAns, timesAsked);
                         similarQuestions.add(newQuestion);
                     }
+                    lastQuestionNum = postSnapshot.getKey().toString();
                 }
                 mAdapter = new QuestionAdapter(SearchResultScreen.this, similarQuestions);
                 recyclerView.setAdapter(mAdapter);
@@ -85,41 +94,19 @@ public class SearchResultScreen extends AppCompatActivity {
             }
         });
 
-
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, similarQuestions); // We will add our similar questions to this adapter
-        //listView.setAdapter(adapter);
-
-
-        /*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Intent intent = new Intent( this, testbase.get( position).getClass()); // I want to call QuestionScreen class of our question here. Not sure how to do it.
-                // It would be healthier to try after we merge the code.
-                //startActivity( intent); // Going to open the question screen activity here.
-
-                Intent intent = new Intent( context, QuestionScreen.class);
-                intent.putExtra( "Questions", QuestNum.getText().toString());
-                context.startActivity( intent);
-            }
-        });
-        */
-
-
-
-
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // We will add a new question to our question database, by taking the properties of question from AskScreen
-                rootNode =  FirebaseDatabase.getInstance();
-                reference = rootNode.getReference( "question");
-                reference.setValue( "Who created this app?");
+                newQuestionNum = Integer.parseInt( lastQuestionNum ) + 1;
+                reference.child( Integer.toString(newQuestionNum)  ).child( "Question").setValue( newQuestion );
+                reference.child( Integer.toString(newQuestionNum)  ).child( "Number of times asked").setValue( 1);
+               // reference.child( Integer.toString(newQuestionNum)  ).child( "Answers").setValue();
+                reference.child( Integer.toString(newQuestionNum)  ).child( "Tags").setValue( newTags);
                 openMainMenu();
             }
         });
     }
-
 
     private void openMainMenu()
     {

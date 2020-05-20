@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
+<<<<<<< HEAD
     EditText editText;
     TextView addYourTags;
     EditText tagSpace;
@@ -35,6 +36,21 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+=======
+    private EditText editText;
+    private TextView addYourTags;
+    private EditText tagSpace;
+    private ImageButton addButton;
+    private TextView tvTags;
+    private Button searchButton;
+    private String allTags;
+    private ArrayList<String> tagsList;
+    private ArrayList<String> similar;
+    private String question;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    int tmp = 0;
+>>>>>>> master
 
 
 
@@ -62,6 +78,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
 
+<<<<<<< HEAD
 
         /**
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -97,6 +114,8 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             }
         }); //Add listener
          */
+=======
+>>>>>>> master
     }
 
     // methods
@@ -138,6 +157,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
             // GO TO SEARCH RESULTS SCREEN
             question = "" + editText.getText();
+            System.out.println( question);
             Intent intent;
             intent = new Intent(this, SearchResultScreen.class);
             intent.putStringArrayListExtra("question_numbers", similar);
