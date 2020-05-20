@@ -20,12 +20,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
 
     private Context context;//
     private ArrayList<Question> mDataset;//
+    private String screen;
 
     //Constructor
-    public QuestionAdapter(Context c, ArrayList<Question> questions )
+    public QuestionAdapter(Context c, ArrayList<Question> questions, String screen )
     {
         this.context = c;
         this.mDataset = questions;
+        this.screen = screen;
     }
 
     // Provide a reference to the views for each data item
@@ -47,9 +49,11 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
         // screen displaying that question with its answers
         public void onClick( View v)
         {
+
             Intent intent = new Intent( context, QuestionScreen.class);
             intent.putExtra( "Questions", QuestNum.getText().toString());
-            context.startActivity( intent);
+            intent.putExtra( "IncrementOrNot", screen );
+             context.startActivity( intent);
         }
     }
 

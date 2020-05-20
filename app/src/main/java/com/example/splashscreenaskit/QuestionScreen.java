@@ -42,6 +42,7 @@ public class QuestionScreen extends AppCompatActivity
     private TextView textQuestion;
     private TextView textNumOfAns;
     private TextView textTags;
+    private String screen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,6 +52,7 @@ public class QuestionScreen extends AppCompatActivity
 
         //Getting the key of the clicked question
         questNum = getIntent().getStringExtra("Questions");
+        screen = getIntent().getStringExtra( "IncrementOrNot");
 
         //Getting recyclerview
         recyclerView = findViewById(R.id.recycle_view);
@@ -61,15 +63,21 @@ public class QuestionScreen extends AppCompatActivity
 
         //Setting up firebase to retrieve the question
         reference = FirebaseDatabase.getInstance().getReference().child("Questions").child(questNum);
-        reference.addValueEventListener(new ValueEventListener()
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
+
                 int i = 0;
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
                 Long timesAsked = (Long) dataSnapshot.child( "Number of times asked").getValue();
+                if ( screen.equals("yes"))
+                {
+                    reference.child( "Number of times asked").setValue( timesAsked + 1);
+                }
                 for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren())
                 {
                     i++;
@@ -116,14 +124,14 @@ public class QuestionScreen extends AppCompatActivity
             public void onClick(View v)
             {
                 String addingAns = newAnswer.getText().toString();
-                if ( !addingAns.equals("") )
-                {
-                    ansReference = reference.child("Answers");
-                    ansReference.push().setValue(addingAns);
-                    newAnswer.setText("");
-                }
-                else
-                    Toast.makeText(QuestionScreen.this, "Please write your answer first", Toast.LENGTH_SHORT).show();
+
+                    if (!addingAns.equals(""))
+                    {
+                        ansReference = reference.child("Answers");
+                        ansReference.push().setValue(addingAns);
+                        newAnswer.setText("");
+                    } else
+                        Toast.makeText(QuestionScreen.this, "Please write your answer first", Toast.LENGTH_SHORT).show();
             }
         });
     }

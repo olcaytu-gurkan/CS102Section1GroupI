@@ -105,7 +105,7 @@ public class MainScreen extends AppCompatActivity
                     Question newQuestion= new Question( question, answers, tags, questNum, numOfAns, timesAsked );
                     questionsList.add(newQuestion );
                 }
-                mAdapter = new QuestionAdapter(MainScreen.this, questionsList);
+                mAdapter = new QuestionAdapter(MainScreen.this, questionsList, "no");
                 recyclerView.setAdapter(mAdapter);
 
                 //Reversing the arraylist of Question so we will get the questions in descending order based on how many times they have been asked
