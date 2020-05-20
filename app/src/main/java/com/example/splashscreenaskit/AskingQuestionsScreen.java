@@ -22,8 +22,8 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
-<<<<<<< HEAD
-=======
+
+
     /**
     EditText editText;
     TextView addYourTags;
@@ -40,7 +40,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     */
 
 
->>>>>>> master
+
 
     private EditText editText;
     private TextView addYourTags;
