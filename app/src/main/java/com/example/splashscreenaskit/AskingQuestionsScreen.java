@@ -22,6 +22,21 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
+<<<<<<< HEAD
+    EditText editText;
+    TextView addYourTags;
+    EditText tagSpace;
+    ImageButton addButton;
+    TextView tvTags;
+    Button searchButton;
+    String allTags;
+    ArrayList<String> tagsList;
+    ArrayList<String> similar;
+    String question;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+=======
     private EditText editText;
     private TextView addYourTags;
     private EditText tagSpace;
@@ -35,6 +50,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     int tmp = 0;
+>>>>>>> master
 
 
 
@@ -62,6 +78,44 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Questions");
 
+<<<<<<< HEAD
+
+        /**
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot ) {
+                similar = new ArrayList<>();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //Retrieving data from realtime database and placing them in variables
+                    ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
+                    //tags.add( postSnapshot.child("Tags").getValue().toString());
+                    System.out.println(tags);
+                    // String question = (String) postSnapshot.child("Question").getValue();
+                    // ArrayList<Answer> answers = (ArrayList<Answer>) postSnapshot.child( "Answers").getValue();
+                    String questNum = (String) postSnapshot.getKey();
+                    // int numOfAns = answers.size();
+                    // Question newQuestion= new Question( question, answers, tags, questNum, numOfAns );
+                    //Compare with tags with taglist
+                    if ( compareTags( tags ) >= 0 ) {
+                        similar.add( questNum);
+                    }
+                }
+<<<<<<< HEAD
+=======
+                similar.add( "RAN");
+                similar.add( "oops");
+               // System.out.println( similar);
+
+>>>>>>> master
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        }); //Add listener
+         */
+=======
+>>>>>>> master
     }
 
     // methods
@@ -71,25 +125,32 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             for( int i = 0; i < tagsList.size(); i++) {
                 if( tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
                         || tagsList.get(i).toLowerCase().equals( ("" + tagSpace.getText()).toLowerCase())) {
-                    System.out.println( "OOPS" );
+
+                    tagSpace.setText("");
+                    System.out.println( tagsList);
+                    return;
+
+
+
                 }
             }
 
             // if first character is #, don't add #
-            if( ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
+            if( ("" + tagSpace.getText()).length() > 0 && ( "" + tagSpace.getText()).substring(0,1).equals("#")) {
                 allTags += ("" + tagSpace.getText()).toLowerCase() + "   ";
                 tagsList.add(("" + tagSpace.getText()).toLowerCase());
-                tmp = 2;
             }
 
             // else, add #
             else {
                 allTags += ("#" + tagSpace.getText() + "   ").toLowerCase();
                 tagsList.add(("#" + tagSpace.getText()).toLowerCase());
-                tmp = 3;
             }
 
             tvTags.setText(allTags);
+            tagSpace.setText("");
+
+            System.out.println( similar);
         }
 
         else if( v.getId() == searchButton.getId()) {
@@ -138,8 +199,9 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     // hashtag bug, until the first number (covid 19 --> covid 18)
     // upper lower case
+    // blank tagSpace --> crash
     // TODO: fix the bugs in the line above
-     public int compareTags(  ArrayList<String> ar ) {
+     public int compareTags(  ArrayList<String> ar) {
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {
              for (int j = 0; j < ar.size(); j++) {
