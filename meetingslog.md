@@ -38,7 +38,7 @@ We have written the project proposal.
 **Discussion:** 
 Since Mr.Davenport didn’t like any of our ideas we decided to go with the most entertaining and challenging project ideas- piano teaching app (Emirhan’s idea)
 
-**ToDo:**Again need to discuss our ideas with Mr.Davenport
+**ToDo:** Again need to discuss our ideas with Mr.Davenport
 ****
 
 ****
