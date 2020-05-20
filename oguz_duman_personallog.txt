@@ -7,11 +7,17 @@ On this page I will keep a weekly record of what I have done for the CS102 group
 
 ### ~ 27.04.2020 ~
 This week I opened my personal log
+Continued on learning Android Studio
 
-### ~ date ~
-This week I helped abc brainstorm ideas for...
+### ~ 04.05.2020 ~
+This week I coded the main structure of Question and Answer classes
+Learnt Firebase
 
-### ~ date ~
-blah, blah, blah...
+### ~ 11.05.2020 ~
+This week we mainly focused on solving the problems of our project as a group
+Debugging and fixing UI
+
+### ~ 18.05.2020 ~
+This week we polished our code and prepared for the video demo as a group
 
 ****
