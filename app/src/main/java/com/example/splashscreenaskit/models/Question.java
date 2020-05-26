@@ -1,19 +1,15 @@
 package com.example.splashscreenaskit.models;
 
-
-
 import java.util.ArrayList;
 
 public class Question
 {
-
     private String question;
     private ArrayList<Answer> answers;
     private ArrayList<String> tags;
     private String questNum;
     private int numOfAns;
     private Long timesAsked;
-
 
     //Constructor
     public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag, String questNum,  int numOfAns, Long timesAsked )
@@ -31,7 +27,6 @@ public class Question
     }
 
     //Some get and set methods
-
     public void setQuestion( String newQuestion )
     {
         question = newQuestion;
@@ -48,7 +43,7 @@ public class Question
         String s;
 
         s = "";
-        if ( tags.size() > 0 )
+        if (tags.size() > 0)
         {
             for (String st : tags)
             {
@@ -103,7 +98,7 @@ public class Question
         return timesAsked;
     }
 
-    public void setTimesAsked( Long timesAsked)
+    public void setTimesAsked(Long timesAsked)
     {
         this.timesAsked = timesAsked;
     }

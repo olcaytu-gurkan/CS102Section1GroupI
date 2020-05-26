@@ -30,8 +30,8 @@ public class SearchResultScreen extends AppCompatActivity {
     private ArrayList<Question> similarQuestions;
     private ArrayList<Question> refQuestions;
     private RecyclerView.Adapter mAdapter;
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
+    private FirebaseDatabase rootNode;
+    private DatabaseReference reference;
     private String newQuestion;
     private ArrayList<String> newTags;
     private String lastQuestionNum;
@@ -102,10 +102,10 @@ public class SearchResultScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // We will add a new question to our question database, by taking the properties of question from AskScreen
                 newQuestionNum = Integer.parseInt( lastQuestionNum ) + 1;
-                reference.child( Integer.toString(newQuestionNum)  ).child( "Question").setValue( newQuestion );
-                reference.child( Integer.toString(newQuestionNum)  ).child( "Number of times asked").setValue( 1);
+                reference.child(Integer.toString(newQuestionNum)).child("Question").setValue(newQuestion);
+                reference.child(Integer.toString(newQuestionNum)).child("Number of times asked").setValue(1);
                // reference.child( Integer.toString(newQuestionNum)  ).child( "Answers").setValue();
-                reference.child( Integer.toString(newQuestionNum)  ).child( "Tags").setValue( newTags);
+                reference.child(Integer.toString(newQuestionNum)).child("Tags").setValue(newTags);
                 openMainMenu();
             }
         });

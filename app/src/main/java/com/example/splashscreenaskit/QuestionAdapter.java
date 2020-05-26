@@ -51,8 +51,8 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
         {
 
             Intent intent = new Intent( context, QuestionScreen.class);
-            intent.putExtra( "Questions", QuestNum.getText().toString());
-            intent.putExtra( "IncrementOrNot", screen );
+            intent.putExtra("Questions", QuestNum.getText().toString());
+            intent.putExtra("IncrementOrNot", screen);
              context.startActivity( intent);
         }
     }

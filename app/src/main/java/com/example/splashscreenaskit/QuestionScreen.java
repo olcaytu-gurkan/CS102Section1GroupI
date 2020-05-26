@@ -73,10 +73,10 @@ public class QuestionScreen extends AppCompatActivity
                 int i = 0;
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
-                Long timesAsked = (Long) dataSnapshot.child( "Number of times asked").getValue();
-                if ( screen.equals("yes"))
+                Long timesAsked = (Long) dataSnapshot.child("Number of times asked").getValue();
+                if (screen.equals("yes"))
                 {
-                    reference.child( "Number of times asked").setValue( timesAsked + 1);
+                    reference.child("Number of times asked").setValue( timesAsked + 1);
                 }
                 for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren())
                 {
@@ -93,7 +93,7 @@ public class QuestionScreen extends AppCompatActivity
                 recyclerView.setAdapter(mAdapter);
 
                 String tagString =  "";
-                for ( String s: tags )
+                for (String s: tags)
                 {
                     tagString = tagString + " " + s;
                 }
