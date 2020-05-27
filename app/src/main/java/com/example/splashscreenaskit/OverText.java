@@ -9,6 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.splashscreenaskit.models.ProfilePage;
 
+/**
+ * This is a class for displaying the username user profile picture and downvote and upvote count of the question
+ * This class is currently unused
+ */
+
 
 public class OverText extends AppCompatActivity implements View.OnClickListener {
     // properties
