@@ -44,6 +44,7 @@ public class QuestionScreen extends AppCompatActivity
     private TextView textTags;
     private String screen;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

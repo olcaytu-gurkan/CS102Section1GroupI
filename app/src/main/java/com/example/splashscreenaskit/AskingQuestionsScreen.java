@@ -39,6 +39,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
 
+
     // constructors
     @Override
     protected void onCreate(Bundle savedInstanceState) {
