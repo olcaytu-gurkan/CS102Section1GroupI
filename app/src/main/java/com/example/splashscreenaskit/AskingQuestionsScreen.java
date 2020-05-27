@@ -18,6 +18,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+/**
+ * This screen allows users to ask new questions by typing the question and adding tags.
+ * After that the similar questions will be searched by comparing its tags with other questions in the database
+ */
 
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
@@ -34,6 +38,10 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     private String question;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+<<<<<<< HEAD
+=======
+    private int tmp = 0;
+>>>>>>> master
 
     // constructors
     @Override

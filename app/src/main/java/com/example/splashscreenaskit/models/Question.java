@@ -2,6 +2,12 @@ package com.example.splashscreenaskit.models;
 
 import java.util.ArrayList;
 
+/**
+ * This is a model for the Question object. Instances of this class are created to in the main
+ * screen and displayed in sorted manner to the users.
+ * Thing to be done: We wil be adding upvote and downvote system to this model
+ */
+
 public class Question
 {
     private String question;

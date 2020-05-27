@@ -22,6 +22,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * This screen displays similar questions that the user has asked and allows them to click on these questions
+ * or if they have not found an  answer to their question then choose to submit his question
+ */
+
 public class SearchResultScreen extends AppCompatActivity {
     private Button submitButton;
     private TextView textView;
@@ -96,6 +101,7 @@ public class SearchResultScreen extends AppCompatActivity {
             }
         });
 
+        //If the user chooses to submit his question
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,11 +110,12 @@ public class SearchResultScreen extends AppCompatActivity {
                 reference.child(Integer.toString(newQuestionNum)).child("Question").setValue(newQuestion);
                 reference.child(Integer.toString(newQuestionNum)).child("Number of times asked").setValue(1);
                 reference.child(Integer.toString(newQuestionNum)).child("Tags").setValue(newTags);
-                openMainMenu();
+                openMainMenu(); //Go to main menu after submitting the question
             }
         });
     }
 
+    //Go to main menu
     private void openMainMenu()
     {
         Intent intent;

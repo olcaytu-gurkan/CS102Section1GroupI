@@ -59,11 +59,8 @@ public class QuestionScreen extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        //
-
         //Setting up firebase to retrieve the question
         reference = FirebaseDatabase.getInstance().getReference().child("Questions").child(questNum);
-
         reference.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
@@ -74,10 +71,14 @@ public class QuestionScreen extends AppCompatActivity
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
                 Long timesAsked = (Long) dataSnapshot.child("Number of times asked").getValue();
+
+                //Updating the times the question has been asked if the question was viewed by the search results screen
                 if (screen.equals("yes"))
                 {
                     reference.child("Number of times asked").setValue( timesAsked + 1);
                 }
+
+                //Getting the previous questions
                 for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren())
                 {
                     i++;
@@ -92,6 +93,7 @@ public class QuestionScreen extends AppCompatActivity
                 mAdapter = new AnswerAdapter(QuestionScreen.this, answers);
                 recyclerView.setAdapter(mAdapter);
 
+                //Getting the tags as one string
                 String tagString =  "";
                 for (String s: tags)
                 {

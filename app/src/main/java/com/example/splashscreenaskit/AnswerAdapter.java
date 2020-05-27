@@ -11,6 +11,10 @@ import com.example.splashscreenaskit.models.Answer;
 
 import java.util.ArrayList;
 
+/**
+ * This is an recycler view adapter for the Answer object which allows the answers to be displayed in a list
+ */
+
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHolder>
 {
 

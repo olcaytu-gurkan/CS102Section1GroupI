@@ -3,16 +3,14 @@ package com.example.splashscreenaskit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.splashscreenaskit.R;
+import com.example.splashscreenaskit.models.ProfilePage;
 
 public class SideBar extends AppCompatActivity {
 

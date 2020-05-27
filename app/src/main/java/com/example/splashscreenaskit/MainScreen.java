@@ -119,6 +119,7 @@ public class MainScreen extends AppCompatActivity
             }
         }); //Add listener
     }
+    //Go to asking questions screen
     public void openAskScreen()
     {
         Intent intent;

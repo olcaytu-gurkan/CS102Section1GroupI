@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Login page
+ */
 public class Login extends AppCompatActivity {
     private EditText mEmail, mPassword;
     private Button mLoginButton;
@@ -35,6 +38,7 @@ public class Login extends AppCompatActivity {
         mSignUpButton = findViewById(R.id.logToUp);
         mAuth = FirebaseAuth.getInstance();
 
+        //If the user already has an account
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +60,7 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
+
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -71,6 +76,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        //If the user does not have an account then take to register page
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

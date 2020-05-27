@@ -11,11 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SideBar"/>
         <activity android:name=".QuestionScreen" />
-        <activity android:name=".AskScreen" />
         <activity android:name=".Login" />
         <activity android:name=".OverText" />
-        <activity android:name=".ProfilePage" />
-        <activity android:name=".Profile" />
+        <activity android:name=".models.ProfilePage" />
         <activity android:name=".Register" />
         <activity android:name=".SearchResultScreen" />
         <activity android:name=".AskingQuestionsScreen" />
