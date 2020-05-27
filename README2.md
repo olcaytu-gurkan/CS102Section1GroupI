@@ -7,7 +7,7 @@ The information and code in this repository are submitted in partial fulfillment
 ### ~ M.O.S.E.S ~
 
 ## Project Description
-_Include a concise description of your project here. Be sure to include the proposed users, the architecture (eg. desktop, web, mobile, embedded, etc.) & screenshots when available._
+AskIt is an application that will help students to get answers to their questions and create a database of questions that will be displayed as a FAQ Section. If the question that the user asks is in our database, our app will show the answer automatically. If the question is not in the database, the user will wait for an answer from other university students. This app will be easy to use as it has many user-friendly features such as filtering answers by several different criteria. It will be available for Android users at the moment.
    
 ## Project Status
 + **Group/project Selection:** completed (date)
@@ -17,14 +17,16 @@ _Include a concise description of your project here. Be sure to include the prop
 + **Implementation:** completed
 + **Reflections:** not yet!
 
-[Group Meetings Log](group/meetingslog.md)
+[Group Meetings Log](meetingslog.md)
 #### Group Members
-- [member1](group/member1_log.md)    _(full name & link to personal log file)_
-- [member2](group/member2_log.md)
-- member3
-- member4
-- member5
+_(full names & links to personal log files)_
+- [Mustafa Oğuz DUMAN 21902051](oguz_duman_personallog.txt)    
+- [Olcaytu GÜRKAN 21903031](olcaytu-gurkan_log.txt)
+- [Selbi Ereshova 21901326](Selbi_Ereshova-personallog.txt) 
+- [Suleyman Hanyyev 21901009](Suleyman_Hanyyev-personallog.txt) 
+- [Emirhan Nadir Karaman 21903103](emirhan-karaman_log.txt)
 
 ****
-**Instructor:** _(name)_   **TA:**  _(name)_
+**Instructor:** David Davenport  **TA:**  Orhun Caglayan
 ****
+
