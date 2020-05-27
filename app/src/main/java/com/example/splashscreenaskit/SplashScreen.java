@@ -6,6 +6,10 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ *This screen shows the logo and the name of our app when the app is first opened
+ */
+
 public class SplashScreen extends AppCompatActivity
 {
     private static int SPLASH_TIME_OUT = 3000;

@@ -9,6 +9,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+/**
+ * This is a side bar that allows the user to choose from the options: go to main menu, go to profie page
+ * frequently asked questions, random question, check notifications.
+ */
 
 import com.example.splashscreenaskit.models.ProfilePage;
 
