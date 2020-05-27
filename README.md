@@ -15,7 +15,7 @@ AskIt is an application that will help students to get answers to their question
 + **UI Design:** completed (29.03.2020)
 + **Detailed Design:** completed (23.05.2020)
 + **Implementation:** completed (27.05.2020)
-+ **Reflections:** not yet!
++ **Reflections:** completed (27.05.2020)
 
 [Group Meetings Log](meetingslog.md)
 #### Group Members
