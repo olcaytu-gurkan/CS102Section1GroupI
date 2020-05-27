@@ -15,7 +15,7 @@ AskIt is an application that will help students to get answers to their question
 + **UI Design:** completed (29.03.2020)
 + **Detailed Design:** completed (23.05.2020)
 + **Implementation:** completed (27.05.2020)
-+ [**Reflections:**](reflexions.txt) completed (27.05.2020)
++ [**Reflections:**](reflections.txt) completed (27.05.2020)
 
 Our project is working and we launched the demo video on 20.05.2020. All main parts of our project are working however we could not implement the Overtext class(which allows users to upvote or downvote and access to profile pages).
 
