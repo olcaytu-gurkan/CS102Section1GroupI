@@ -4,18 +4,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.splashscreenaskit.models.Answer;
-import com.example.splashscreenaskit.models.Question;
 
 import java.util.ArrayList;
 
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHolder>
 {
 
-    private Context context;//
-    private ArrayList<Answer> mDataset;//
+    private Context context;
+    private ArrayList<Answer> mDataset;
 
     //Constructor
     public AnswerAdapter(Context c, ArrayList<Answer> questions )
@@ -54,8 +54,8 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHold
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         Answer answers = this.mDataset.get(position);
-        holder.answer.setText( answers.getAnswer());
-        holder.ansNum.setText( Integer.toString( answers.getAnsNum() ) ); //Error here----------------- fixed
+        holder.answer.setText(answers.getAnswer());
+        holder.ansNum.setText(Integer.toString(answers.getAnsNum())); //Error here----------------- fixed
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -128,3 +128,28 @@ We discussed and completed our Detailed Design. We did the isA and hasA relation
 **ToDo:** We need to implement the project.
 
 ****
+
+****
+### Meeting ~ Discussion about the recording( 20 May, 2 hours)
+****
+**Present:** Everyone
+
+**Discussion:** 
+We argued how to record our video and what to talk about in it. Also, we did some debugging together. 
+
+**ToDo:** We have to record the video!
+
+****
+
+****
+### Meeting ~ Finished the Detailed Design Report version 2( 22 May, 1 hour)
+****
+**Present:** Everyone
+
+**Discussion:** 
+We discussed and completed our final Detailed Design report. We had to change some classes and also add some new ones.
+
+**ToDo:** We have to revise the code
+
+****
+

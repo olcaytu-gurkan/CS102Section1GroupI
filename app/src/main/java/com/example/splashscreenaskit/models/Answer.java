@@ -2,10 +2,9 @@ package com.example.splashscreenaskit.models;
 
 public class Answer
 {
-
     //Properties
-    String answer;
-    int ansNum;
+    private String answer;
+    private int ansNum;
 
     //Constructor
     public Answer( String answer, int ansNum)
@@ -15,7 +14,6 @@ public class Answer
     }
 
     //Some get and set methods
-
     public String getAnswer()
     {
         return answer;

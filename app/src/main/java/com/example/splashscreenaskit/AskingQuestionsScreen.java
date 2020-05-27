@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class AskingQuestionsScreen extends AppCompatActivity implements View.OnClickListener {
 
     // properties
-
     private EditText editText;
     private TextView addYourTags;
     private EditText tagSpace;
