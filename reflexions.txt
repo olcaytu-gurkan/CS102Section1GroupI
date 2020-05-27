@@ -1,4 +1,4 @@
-# CS102 Group1I Reflexions
+ CS102 Group1I Reflexions
 
 In this project; we have learned how to use Android Studio, Firebase and MVC design pattern and more importantly
 how to learn using new material like these. We experienced what coding and creating a project as a group feels like.
