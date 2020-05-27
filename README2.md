@@ -2,7 +2,7 @@
 [Computer Engineering Department, Bilkent University](http://w3.cs.bilkent.edu.tr/en/).  
 The information and code in this repository are submitted in partial fulfillment of the CS102 Semester Design Project. Except where explicitly stated, the work is that of the group members listed below (who are expected to follow ethical academic & professional practice).
 ****
-## g0I ~~ AskIt ~~
+## g1I ~~ AskIt ~~
 ****
 ### ~ MOSES ~
 
@@ -26,11 +26,11 @@ Our project is working and we launched the demo video on 20.05.2020. All main pa
 
 [Group Meetings Log](group/meetingslog.md)
 #### Group Members
-- [Mustafa Oğuz DUMAN](oguz_duman_personallog.txt)   : Question and Answer classes 
+- [Mustafa Oğuz DUMAN](oguz_duman_personallog.txt)   : Question and Answer classes.
 - [Olcaytu GÜRKAN](olcaytu-gurkan_log.txt)           : Log In and Sign Up Screen, Search Result Screen, Firebase Implementation.
-- [Selbi ERESHOVA](Selbi_Ereshova-personallog.txt)   : Main screen, Question Screen and Splash screen
-- [Emirhan Nadir KARAMAN](emirhan-karaman_log.txt)   : Overtext and AskingQuestionsScreen classes
-- [Suleyman HANYYEV](Suleyman_Hanyyev-personallog.txt)
+- [Selbi ERESHOVA](Selbi_Ereshova-personallog.txt)   : Main screen, Question Screen and Splash Sreen.
+- [Emirhan Nadir KARAMAN](emirhan-karaman_log.txt)   : Overtext and AskingQuestionsScreen classes.
+- [Suleyman HANYYEV](Suleyman_Hanyyev-personallog.txt): Sidebar and Profile Page.
 
 ****
 **Instructor:** David Davenport  **TA:**  Orhun Çağlayan
