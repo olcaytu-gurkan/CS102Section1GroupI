@@ -1,8 +1,7 @@
- CS102 Group1I Reflexions
+CS102 Group1I Reflexions
 
 In this project, we have learned how to use Android Studio, Firebase and MVC design pattern, and more importantly,
 how to learn using new material like these. We experienced what coding and creating a project as a group feels like.
 We also found out the joy and pride of seeing a project of our own work. We began our project later than we planned
-and needed to rush things and this created some problems. Working as a group, trying to create reusable classes and trying to merge all code and come up with properly working application were
-difficult tasks. Thanks to our experience obtained from this project; we would learn things and work more efficiently
+and needed to rush things and this created some problems. Working as a group, trying to create reusable classes and trying to merge all code and come up with properly working application weredifficult tasks. Thanks to our experience obtained from this project; we would learn things and work more efficiently
 as a group if we started over. However, we think that we did a great job in a 4 week span and we are proud of our work.
