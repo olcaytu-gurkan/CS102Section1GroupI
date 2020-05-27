@@ -28,8 +28,8 @@ Our project is working and we launched the demo video on 20.05.2020. All main pa
 #### Group Members
 - [Mustafa Oğuz DUMAN](oguz_duman_personallog.txt)   : Question and Answer classes.
 - [Olcaytu GÜRKAN](olcaytu-gurkan_log.txt)           : Log In and Sign Up Screen, Search Result Screen, Firebase Implementation.
-- [Selbi ERESHOVA](Selbi_Ereshova-personallog.txt)   : Main screen, Question Screen and Splash Sreen.
-- [Emirhan Nadir KARAMAN](emirhan-karaman_log.txt)   : Overtext and AskingQuestionsScreen classes.
+- [Selbi ERESHOVA](Selbi_Ereshova-personallog.txt)   : Main Screen, Question Screen and Splash Screen.
+- [Emirhan Nadir KARAMAN](emirhan-karaman_log.txt)   : Overtext and Asking Questions Screen classes.
 - [Suleyman HANYYEV](Suleyman_Hanyyev-personallog.txt) : Sidebar and Profile Page.
 
 ****
