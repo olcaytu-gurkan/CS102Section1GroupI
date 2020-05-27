@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.splashscreenaskit.models.ProfilePage;
+
+
 public class OverText extends AppCompatActivity implements View.OnClickListener {
     // properties
     private ImageButton pp;
@@ -22,7 +25,7 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
     private TextView username;
     private TextView karma;
 
-    // constructors
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

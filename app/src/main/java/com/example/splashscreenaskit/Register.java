@@ -17,6 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * This screen allows users to create a new account if they are new to ASkIt
+ */
+
 public class Register extends AppCompatActivity {
     private EditText mFullName, mEmail, mPassword;
     private Button mRegisterButton;

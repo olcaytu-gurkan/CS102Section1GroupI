@@ -1,5 +1,9 @@
 package com.example.splashscreenaskit.models;
 
+/**
+ * This is a model for the Answer object. Instances of this class is created to store the answers of
+ * the questions in the realtime database.
+ */
 public class Answer
 {
     //Properties
