@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         mSignUpButton = findViewById(R.id.logToUp);
         mAuth = FirebaseAuth.getInstance();
 
-        //If the user already has an account
+        // If the user already has an account
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        //If the user does not have an account then take to register page
+        // If the user does not have an account then take to register page
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
