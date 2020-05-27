@@ -66,8 +66,8 @@ public class MainScreen extends AppCompatActivity {
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-        //Setting up firebase
-        //Getting the questions from firebase and sorting them according to how frequent they have been asked
+        // Setting up firebase
+        // Getting the questions from firebase and sorting them according to how frequent they have been asked
         rootNode = FirebaseDatabase.getInstance();
         query = FirebaseDatabase.getInstance().getReference().child("Questions").orderByChild( "Number of times asked");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -110,9 +110,9 @@ public class MainScreen extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(MainScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
-        }); //Add listener
+        }); // Add listener
     }
-    //Go to asking questions screen
+    // Go to asking questions screen
     public void openAskScreen() {
         Intent intent;
         intent = new Intent(this, AskingQuestionsScreen.class);

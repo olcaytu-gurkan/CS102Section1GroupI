@@ -8,8 +8,7 @@ import java.util.ArrayList;
  * Thing to be done: We wil be adding upvote and downvote system to this model
  */
 
-public class Question
-{
+public class Question {
     private String question;
     private ArrayList<Answer> answers;
     private ArrayList<String> tags;
@@ -18,8 +17,7 @@ public class Question
     private Long timesAsked;
 
     //Constructor
-    public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag, String questNum,  int numOfAns, Long timesAsked )
-    {
+    public Question(String question, ArrayList<Answer> answers, ArrayList<String> tag, String questNum,  int numOfAns, Long timesAsked ) {
         this.question = question;
         this.answers = answers;
         this.tags = tag;
@@ -27,12 +25,13 @@ public class Question
         this.numOfAns = numOfAns;
         this.timesAsked = timesAsked;
     }
-    public Question(String hello, ArrayList<Answer> answers, ArrayList<String> tag, String questNum, Integer o, Object timesAsked){
+
+    public Question(String hello, ArrayList<Answer> answers, ArrayList<String> tag, String questNum, Integer o, Object timesAsked) {
         tags = new ArrayList<>();
         this.answers = new ArrayList<>();
     }
 
-    //Some get and set methods
+    // Some get and set methods
     public void setQuestion( String newQuestion )
     {
         question = newQuestion;
@@ -43,21 +42,21 @@ public class Question
         return question;
     }
 
-    public String getTags()
-    {
+    public String getTags() {
         //Local variable
         String s;
 
         s = "";
-        if (tags.size() > 0)
-        {
-            for (String st : tags)
-            {
+        if (tags.size() > 0) {
+            for (String st : tags) {
                 s = s + " " + st;
             }
+
             return s;
         }
-        else return  "";
+
+        else
+            return  "";
     }
 
     public ArrayList<String> getTagsList() {

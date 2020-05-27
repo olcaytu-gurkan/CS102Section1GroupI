@@ -4,20 +4,18 @@ package com.example.splashscreenaskit.models;
  * This is a model for the Answer object. Instances of this class is created to store the answers of
  * the questions in the realtime database.
  */
-public class Answer
-{
-    //Properties
+public class Answer {
+    // Properties
     private String answer;
     private int ansNum;
 
-    //Constructor
-    public Answer( String answer, int ansNum)
-    {
+    // Constructor
+    public Answer( String answer, int ansNum) {
         this.answer = answer;
         this.ansNum = ansNum;
     }
 
-    //Some get and set methods
+    // Some get and set methods
     public String getAnswer()
     {
         return answer;
