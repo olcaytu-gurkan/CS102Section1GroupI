@@ -38,10 +38,6 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     private String question;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
-<<<<<<< HEAD
-=======
-    private int tmp = 0;
->>>>>>> master
 
     // constructors
     @Override
