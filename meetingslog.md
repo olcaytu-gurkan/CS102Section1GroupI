@@ -77,7 +77,7 @@ Decided the main classes and objects and properties.
 ****
 
 ****
-### Meeting ~ Finishing the detailed design(26 April, 2 hour)
+### Meeting ~ Finishing the detailed design (26 April, 2 hour)
 ****
 **Present:** Everyone
 
@@ -89,7 +89,7 @@ Nearly finished detailed design. We all have an idea about the implementation of
 ****
 
 ****
-### Meeting ~ Distributing the workload( 1 May, 1 hour)
+### Meeting ~ Distributing the workload (1 May, 1 hour)
 ****
 **Present:** Everyone
 
@@ -106,7 +106,7 @@ We distributed the work need to be done to accomplished our project.
 ****
 
 ****
-### Meeting ~ Merging the main code parts( 11 May, 1.5 hour)
+### Meeting ~ Merging the main code parts (11 May, 1.5 hour)
 ****
 **Present:** Everyone
 
@@ -118,7 +118,7 @@ Merged the parts we have coded using GitHub. Had some problems about file names 
 ****
 
 ****
-### Meeting ~ Finished the Detailed Design Report( 12 May, 2 hours)
+### Meeting ~ Finished the Detailed Design Report (12 May, 2 hours)
 ****
 **Present:** Everyone
 
@@ -130,7 +130,7 @@ We discussed and completed our Detailed Design. We did the isA and hasA relation
 ****
 
 ****
-### Meeting ~ Discussion about the recording( 20 May, 2 hours)
+### Meeting ~ Discussion about the recording (20 May, 2 hours)
 ****
 **Present:** Everyone
 
@@ -142,7 +142,7 @@ We argued how to record our video and what to talk about in it. Also, we did som
 ****
 
 ****
-### Meeting ~ Finished the Detailed Design Report version 2( 22 May, 1 hour)
+### Meeting ~ Finished the Detailed Design Report version 2(22 May, 1 hour)
 ****
 **Present:** Everyone
 
@@ -150,6 +150,18 @@ We argued how to record our video and what to talk about in it. Also, we did som
 We discussed and completed our final Detailed Design report. We had to change some classes and also add some new ones.
 
 **ToDo:** We have to revise the code
+
+****
+
+****
+### Meeting ~ Finishing Final Project Code (27 May, 2 hours)
+****
+**Present:** Everyone except Suleyman
+
+**Discussion:** 
+Revised final version of the code. Wrote reflections and readme2 file.
+
+**ToDo:** Nothing else to do in group, we suppose.
 
 ****
 
