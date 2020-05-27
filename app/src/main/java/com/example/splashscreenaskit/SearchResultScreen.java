@@ -66,8 +66,7 @@ public class SearchResultScreen extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 similarQuestions = new ArrayList<>();
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     // Retrieving data from realtime database and placing them in variables
                     if (sendedQuestions.contains(postSnapshot.getKey())) {
                         String question = (String) postSnapshot.child("Question").getValue();
@@ -76,6 +75,7 @@ public class SearchResultScreen extends AppCompatActivity {
                         Long timesAsked = (Long) postSnapshot.child("Number of times asked").getValue();
                         int i = 0;
                         int numOfAns = 0;
+
                         for (DataSnapshot postSnapshot1 : postSnapshot.child("Answers").getChildren()) {
                             i++;
                             String ans = (String) postSnapshot1.getValue();
@@ -84,24 +84,26 @@ public class SearchResultScreen extends AppCompatActivity {
                             answers.add(newAnswer);
                             numOfAns = i;
                         }
+
                         String questNum = (String) postSnapshot.getKey();
                         Question newQuestion = new Question(question, answers, tags, questNum, numOfAns, timesAsked);
                         similarQuestions.add(newQuestion);
                     }
+
                     lastQuestionNum = postSnapshot.getKey().toString();
                 }
+
                 mAdapter = new QuestionAdapter(SearchResultScreen.this, similarQuestions, "yes");
                 recyclerView.setAdapter(mAdapter);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(SearchResultScreen.this, "Oops.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
-        //If the user chooses to submit his question
+        // If the user chooses to submit his question
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,14 +112,13 @@ public class SearchResultScreen extends AppCompatActivity {
                 reference.child(Integer.toString(newQuestionNum)).child("Question").setValue(newQuestion);
                 reference.child(Integer.toString(newQuestionNum)).child("Number of times asked").setValue(1);
                 reference.child(Integer.toString(newQuestionNum)).child("Tags").setValue(newTags);
-                openMainMenu(); //Go to main menu after submitting the question
+                openMainMenu(); // Go to main menu after submitting the question
             }
         });
     }
 
-    //Go to main menu
-    private void openMainMenu()
-    {
+    // Go to main menu
+    private void openMainMenu() {
         Intent intent;
         intent = new Intent(this, MainScreen.class);
         startActivity( intent );
