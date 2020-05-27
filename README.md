@@ -13,8 +13,8 @@ AskIt is an application that will help students to get answers to their question
 + **Group/project Selection:** completed (17.02.2020)
 + **Requirements:** completed (24.02.2020)
 + **UI Design:** completed (29.03.2020)
-+ **Detailed Design:** completed
-+ **Implementation:** Started
++ **Detailed Design:** completed (23.05.2020)
++ **Implementation:** completed (20.05.2020)
 + **Reflections:** not yet!
 
 [Group Meetings Log](meetingslog.md)
