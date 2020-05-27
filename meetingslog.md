@@ -159,7 +159,7 @@ We discussed and completed our final Detailed Design report. We had to change so
 **Present:** Everyone except Suleyman
 
 **Discussion:** 
-Revised final version of the code. Wrote reflections and READE2 file.
+Revised final version of the code. Wrote reflections and README2 file.
 
 **ToDo:** Nothing else to do in group, we suppose.
 
