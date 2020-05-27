@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity
             public void run()
             {
                 Intent logIntent = new Intent( SplashScreen.this, Login.class );
-                startActivity( logIntent);
+                startActivity( logIntent);  // go to login screen
                 finish();
             }
 

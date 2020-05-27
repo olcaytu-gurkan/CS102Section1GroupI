@@ -57,7 +57,7 @@ public class SideBar extends AppCompatActivity {
     }
     public void openActivityProfilePage(){
         Intent intent = new Intent(this, ProfilePage.class);
-        startActivity(intent);
+        startActivity(intent); // go to profile page
     }
 
     public void openActivityHomeScreen(){}

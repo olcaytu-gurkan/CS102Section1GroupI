@@ -127,8 +127,6 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
         }); //Add listener
     }
 
-    // blank tagSpace --> crash
-    // TODO: fix the bugs in the line above
      public int compareTags(ArrayList<String> ar) {
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {

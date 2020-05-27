@@ -30,6 +30,7 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
         profile = new ProfilePage("ahmet", "123456");
         upvote = 0; // question.getUpvoteCount();
         downvote = 0;
+
         vote = upvote - downvote;
         isUpvoted = false;
         isDownvoted = false;
@@ -50,7 +51,7 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
         upvoteButton = (ImageButton) findViewById(R.id.upvoteButton);
         downvoteButton = (ImageButton) findViewById(R.id.downvoteButton);
         karma = (TextView) findViewById( R.id.karma);
-        karma.setText("0");
+        karma.setText("0");  // start with 0 karma
 
         // listeners
         upvoteButton.setOnClickListener(this);
@@ -64,41 +65,47 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
     // methods
     @Override
     public void onClick( View v) {
-        // upvoted
+        // when upvoted:
         if( isUpvoted) {
-            // clicked on upvote button
+            // clicked on upvote button again
             if (v.getId() == upvoteButton.getId()) {
-                upvote--;
-                karma.setText("" + getVote());
-                isUpvoted = !isUpvoted;
+                upvote--; // cancel upvote
+                karma.setText("" + getVote());  // update vote count
+                isUpvoted = !isUpvoted; // update upvoted state
             }
 
             // clicked on downvote button
             else if (v.getId() == downvoteButton.getId()) {
+                // cancel upvote, add downvote
                 upvote--;
                 downvote++;
-                karma.setText("" + getVote());
+                karma.setText("" + getVote()); // update vote count
+
+                // update upvoted and downvoted states
                 isUpvoted = !isUpvoted;
                 isDownvoted = !isDownvoted;
             }
         }
 
-        // downvoted
+        // when downvoted
         else if( isDownvoted){
             // clicked on upvote button
             if (v.getId() == upvoteButton.getId()) {
+                // cancel downvote, add upvote
                 downvote--;
                 upvote++;
-                karma.setText("" + getVote());
+                karma.setText("" + getVote());  // update vote count
+
+                // update upvoted and downvoted states
                 isUpvoted = !isUpvoted;
                 isDownvoted = !isDownvoted;
             }
 
-            // clicked on downvote button
+            // clicked on downvote button again
             else if (v.getId() == downvoteButton.getId()) {
-                downvote--;
-                karma.setText("" + getVote());
-                isDownvoted = !isDownvoted;
+                downvote--; // cancel downvote
+                karma.setText("" + getVote()); // update vote count
+                isDownvoted = !isDownvoted; // update downvoted state
             }
         }
 
@@ -106,16 +113,16 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
         else if( !isUpvoted && !isDownvoted) {
             // clicked on upvote button
             if (v.getId() == upvoteButton.getId()) {
-                upvote++;
-                karma.setText("" + getVote());
-                isUpvoted = !isUpvoted;
+                upvote++; // add upvote
+                karma.setText("" + getVote()); // update vote count
+                isUpvoted = !isUpvoted; // update upvoted state
             }
 
             // clicked on downvote button
             else if (v.getId() == downvoteButton.getId()) {
-                downvote++;
-                karma.setText("" + getVote());
-                isDownvoted = !isDownvoted;
+                downvote++; // add downvote
+                karma.setText("" + getVote()); // update vote count
+                isDownvoted = !isDownvoted; // update downvoted state
             }
         }
         // clicked on username or profile picture
@@ -126,8 +133,7 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
             // startActivity(intent);
         }
 
-        // UPVOTE- DOWNVOTE ONCE
-        //  isPressed
+        // TODO: add a profile screen
 
     }
 

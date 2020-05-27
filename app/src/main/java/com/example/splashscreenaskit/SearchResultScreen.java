@@ -44,15 +44,14 @@ public class SearchResultScreen extends AppCompatActivity {
         setContentView(R.layout.activity_searchresult);
         refQuestions = new ArrayList<>();
 
-        //Getting data from asking questions screen
+        // Getting data from asking questions screen
         sendedQuestions = getIntent().getStringArrayListExtra("question_numbers");
         newQuestion = getIntent().getStringExtra( "user_question" );
         newTags = getIntent().getStringArrayListExtra( "tags");
         textView = findViewById(R.id.textView39);
 
-        recyclerView = findViewById(R.id.recycler2); // Okay, we will assume that this is the similar question
+        recyclerView = findViewById(R.id.recycler2);
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
-        //similarQuestions = new ArrayList<>();
         submitButton = findViewById(R.id.submit_for_answering);
 
         reference = FirebaseDatabase.getInstance().getReference().child("Questions");
@@ -64,7 +63,7 @@ public class SearchResultScreen extends AppCompatActivity {
                 similarQuestions = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
                 {
-                    //Retrieving data from realtime database and placing them in variables
+                    // Retrieving data from realtime database and placing them in variables
                     if (sendedQuestions.contains(postSnapshot.getKey())) {
                         String question = (String) postSnapshot.child("Question").getValue();
                         ArrayList<String> tags = (ArrayList<String>) postSnapshot.child("Tags").getValue();
@@ -93,7 +92,7 @@ public class SearchResultScreen extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError)
             {
-                Toast.makeText(SearchResultScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SearchResultScreen.this, "Oops.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -104,7 +103,6 @@ public class SearchResultScreen extends AppCompatActivity {
                 newQuestionNum = Integer.parseInt( lastQuestionNum ) + 1;
                 reference.child(Integer.toString(newQuestionNum)).child("Question").setValue(newQuestion);
                 reference.child(Integer.toString(newQuestionNum)).child("Number of times asked").setValue(1);
-               // reference.child( Integer.toString(newQuestionNum)  ).child( "Answers").setValue();
                 reference.child(Integer.toString(newQuestionNum)).child("Tags").setValue(newTags);
                 openMainMenu();
             }
