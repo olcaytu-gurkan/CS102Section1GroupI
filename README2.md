@@ -30,7 +30,7 @@ Our project is working and we launched the demo video on 20.05.2020. All main pa
 - [Olcaytu GÜRKAN](olcaytu-gurkan_log.txt)           : Log In and Sign Up Screen, Search Result Screen, Firebase Implementation.
 - [Selbi ERESHOVA](Selbi_Ereshova-personallog.txt)   : Main screen, Question Screen and Splash Sreen.
 - [Emirhan Nadir KARAMAN](emirhan-karaman_log.txt)   : Overtext and AskingQuestionsScreen classes.
-- [Suleyman HANYYEV](Suleyman_Hanyyev-personallog.txt): Sidebar and Profile Page.
+- [Suleyman HANYYEV](Suleyman_Hanyyev-personallog.txt) : Sidebar and Profile Page.
 
 ****
 **Instructor:** David Davenport  **TA:**  Orhun Çağlayan
