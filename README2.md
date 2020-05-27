@@ -7,15 +7,22 @@ The information and code in this repository are submitted in partial fulfillment
 ### ~ MOSES ~
 
 ## Project Description
-_Include a concise description of your project here. Be sure to include the proposed users, the architecture (eg. desktop, web, mobile, embedded, etc.) & screenshots when available._
+AskIt is an application that will help students to get answers to their questions and create a database of questions that will be displayed as a FAQ Section. If the question that the user asks is in our database, our app will show the answer automatically. If the question is not in the database, the user will wait for an answer from other university students. This app will be easy to use as it has many user-friendly features such as filtering answers by several different criteria. It will be available for Android users at the moment.
    
 ## Project Status
 + **Group/project Selection:** completed (17.02.2020)
 + **Requirements:** completed (24.02.2020)
 + **UI Design:** completed (29.03.2020)
-+ [**Detailed Design:**](CS102 Project ReportV2.docx) completed (23.05.2020)
-+ **Implementation:** completed (20.05.2020)
++ **Detailed Design:** completed (23.05.2020)
++ **Implementation:** completed (27.05.2020)
 + [**Reflections:**](reflexions.txt) completed (27.05.2020)
+
+Our project is working and we launched the demo video on 20.05.2020. All main parts of our project are working however we could not implement the Overtext class(which allows users to upvote or downvote and access to profile pages).
+
+#### Software Used
+- Android Studio 3.6.3
+- Firebase Authentication
+- Firebase Realtime Database
 
 [Group Meetings Log](group/meetingslog.md)
 #### Group Members
