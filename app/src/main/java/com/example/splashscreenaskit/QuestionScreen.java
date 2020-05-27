@@ -46,42 +46,36 @@ public class QuestionScreen extends AppCompatActivity
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_screen);
 
-        //Getting the key of the clicked question
+        // Getting the key of the clicked question
         questNum = getIntent().getStringExtra("Questions");
         screen = getIntent().getStringExtra( "IncrementOrNot");
 
-        //Getting recyclerview
+        // Getting recyclerview
         recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        //Setting up firebase to retrieve the question
+        // Setting up firebase to retrieve the question
         reference = FirebaseDatabase.getInstance().getReference().child("Questions").child(questNum);
-        reference.addListenerForSingleValueEvent(new ValueEventListener()
-        {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int i = 0;
                 answers = new ArrayList<>();
                 question = (String) dataSnapshot.child("Question").getValue();
                 Long timesAsked = (Long) dataSnapshot.child("Number of times asked").getValue();
 
-                //Updating the times the question has been asked if the question was viewed by the search results screen
-                if (screen.equals("yes"))
-                {
+                // Updating the times the question has been asked if the question was viewed by the search results screen
+                if (screen.equals("yes")) {
                     reference.child("Number of times asked").setValue( timesAsked + 1);
                 }
 
-                //Getting the previous questions
-                for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren())
-                {
+                // Getting the previous questions
+                for (DataSnapshot postSnapshot : dataSnapshot.child("Answers").getChildren()) {
                     i++;
                     String ans = (String) postSnapshot.getValue();
                     Answer newAnswer = new Answer(ans, i);
@@ -94,10 +88,9 @@ public class QuestionScreen extends AppCompatActivity
                 mAdapter = new AnswerAdapter(QuestionScreen.this, answers);
                 recyclerView.setAdapter(mAdapter);
 
-                //Getting the tags as one string
+                // Getting the tags as one string
                 String tagString =  "";
-                for (String s: tags)
-                {
+                for (String s: tags) {
                     tagString = tagString + " " + s;
                 }
 
@@ -112,13 +105,12 @@ public class QuestionScreen extends AppCompatActivity
 
             @Override
 
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(QuestionScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
-        //Make the submit button add another answer to the question
+        // Make the submit button add another answer to the question
         submitButton = (Button) findViewById(R.id.submitButton);
         newAnswer = (EditText) findViewById(R.id.answer);
         submitButton.setOnClickListener(new View.OnClickListener()
@@ -127,14 +119,14 @@ public class QuestionScreen extends AppCompatActivity
             public void onClick(View v)
             {
                 String addingAns = newAnswer.getText().toString();
+                if (!addingAns.equals("")) {
+                    ansReference = reference.child("Answers");
+                    ansReference.push().setValue(addingAns);
+                    newAnswer.setText("");
+                }
 
-                    if (!addingAns.equals(""))
-                    {
-                        ansReference = reference.child("Answers");
-                        ansReference.push().setValue(addingAns);
-                        newAnswer.setText("");
-                    } else
-                        Toast.makeText(QuestionScreen.this, "Please write your answer first", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(QuestionScreen.this, "Please write your answer first", Toast.LENGTH_SHORT).show();
             }
         });
     }

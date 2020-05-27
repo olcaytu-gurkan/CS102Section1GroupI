@@ -15,15 +15,13 @@ import java.util.ArrayList;
  * This is an recycler view adapter for the Answer object which allows the answers to be displayed in a list
  */
 
-public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHolder>
-{
+public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHolder> {
 
     private Context context;
     private ArrayList<Answer> mDataset;
 
-    //Constructor
-    public AnswerAdapter(Context c, ArrayList<Answer> questions )
-    {
+    // Constructor
+    public AnswerAdapter(Context c, ArrayList<Answer> questions ) {
         this.context = c;
         this.mDataset = questions;
     }
@@ -31,7 +29,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHold
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public  class MyViewHolder extends RecyclerView.ViewHolder  {
+    public class MyViewHolder extends RecyclerView.ViewHolder  {
         public TextView answer, ansNum;
 
         public MyViewHolder(View v) {
@@ -43,8 +41,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.MyViewHold
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflator = LayoutInflater.from(context);
         // create a new view
         View v =  inflator.inflate(R.layout.activity_answer_view, parent, false);

@@ -132,7 +132,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     }
 
     // compare tags of questions from the database, with the tags of the user's question
-     public int compareTags(ArrayList<String> ar) {
+    public int compareTags(ArrayList<String> ar) {
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {
              for (int j = 0; j < ar.size(); j++) {
@@ -141,6 +141,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
                  }
              }
          }
+
          return count;
      }
 }

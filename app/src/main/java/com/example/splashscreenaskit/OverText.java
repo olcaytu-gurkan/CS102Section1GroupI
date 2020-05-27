@@ -13,8 +13,6 @@ import com.example.splashscreenaskit.models.ProfilePage;
  * This is a class for displaying the username user profile picture and downvote and upvote count of the question
  * This class is currently unused
  */
-
-
 public class OverText extends AppCompatActivity implements View.OnClickListener {
     // properties
     private ImageButton pp;
@@ -45,14 +43,14 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
 
         pp = (ImageButton) findViewById(R.id.profileXML);
         // profile picture
+
         if ( profile.getProfilePic() != null )
             pp = (ImageButton) profile.getProfilePic();
-
         // username
-       username = (TextView) findViewById(R.id.username);
-       if( profile.getUsername() != null)
+        username = (TextView) findViewById(R.id.username);
+        if( profile.getUsername() != null)
            username.setText( profile.getUsername());
-       else
+        else
            username.setText("anonymous");
 
         // upvote, downvote buttons
@@ -67,7 +65,6 @@ public class OverText extends AppCompatActivity implements View.OnClickListener 
         username.setOnClickListener(this);
         pp.setOnClickListener(this);
         karma.setOnClickListener(this);
-
     }
 
     // methods

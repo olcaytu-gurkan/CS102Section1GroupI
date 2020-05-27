@@ -26,7 +26,6 @@ import java.util.ArrayList;
  * This screen displays similar questions that the user has asked and allows them to click on these questions
  * or if they have not found an  answer to their question then choose to submit his question
  */
-
 public class SearchResultScreen extends AppCompatActivity {
     private Button submitButton;
     private TextView textView;
@@ -41,7 +40,6 @@ public class SearchResultScreen extends AppCompatActivity {
     private ArrayList<String> newTags;
     private String lastQuestionNum;
     private int newQuestionNum;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +58,9 @@ public class SearchResultScreen extends AppCompatActivity {
         submitButton = findViewById(R.id.submit_for_answering);
 
         reference = FirebaseDatabase.getInstance().getReference().child("Questions");
-        reference.addValueEventListener(new ValueEventListener()
-        {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 similarQuestions = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     // Retrieving data from realtime database and placing them in variables

@@ -23,8 +23,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
     private String screen;
 
     //Constructor
-    public QuestionAdapter(Context c, ArrayList<Question> questions, String screen )
-    {
+    public QuestionAdapter(Context c, ArrayList<Question> questions, String screen ) {
         this.context = c;
         this.mDataset = questions;
         this.screen = screen;
@@ -34,7 +33,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public  class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView Question, QuestNum, NumOfAns,tags;
+        public TextView Question, QuestNum, NumOfAns, tags;
 
         public MyViewHolder(View v) {
             super(v);
@@ -45,31 +44,27 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
 
            v.setOnClickListener( this);
         }
+
         // When a question is clicked the user is directed to the question
         // screen displaying that question with its answers
-        public void onClick( View v)
-        {
-
+        public void onClick( View v) {
             Intent intent = new Intent( context, QuestionScreen.class);
             intent.putExtra("Questions", QuestNum.getText().toString());
             intent.putExtra("IncrementOrNot", screen);
-             context.startActivity( intent);
+            context.startActivity( intent);
         }
     }
 
-
-
     // Create new views (invoked by the layout manager)
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflator = LayoutInflater.from(context);
+
         // create a new view
         View v =  inflator.inflate(R.layout.activity_question, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }
-
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override

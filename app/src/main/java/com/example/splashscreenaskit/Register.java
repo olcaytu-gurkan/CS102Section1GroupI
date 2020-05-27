@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 /**
  * This screen allows users to create a new account if they are new to ASkIt
  */
-
 public class Register extends AppCompatActivity {
     private EditText mFullName, mEmail, mPassword;
     private Button mRegisterButton;
@@ -67,6 +66,7 @@ public class Register extends AppCompatActivity {
                             Toast.makeText(Register.this, "Account created!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), com.example.splashscreenaskit.MainScreen.class));
                         }
+
                         else {
                             Toast.makeText(Register.this, "Error!", Toast.LENGTH_SHORT).show();
                         }
@@ -81,6 +81,5 @@ public class Register extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
-
     }
 }

@@ -30,8 +30,7 @@ import java.util.Collections;
  * This is the main menu where the user can see the most frequently asked questions and choose to view them
  * with their answers or choose to ask a new question by clicking on the logo.
  */
-public class MainScreen extends AppCompatActivity
-{
+public class MainScreen extends AppCompatActivity {
     private ImageButton logo;
     private ArrayList<Question> questionsList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -42,27 +41,24 @@ public class MainScreen extends AppCompatActivity
     private DatabaseReference reference;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        //Setting the logo to open the asking questions screen
+        // Setting the logo to open the asking questions screen
         logo = (ImageButton) findViewById(R.id.searchButton);
-        logo.setOnClickListener(new View.OnClickListener()
-        {
+        logo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 openAskScreen();
             }
         });
 
-        //Activating toolbar ( incomplete)
+        // Activating toolbar ( incomplete)
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Working with recycle view
+        // Working with recycle view
         recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager( new LinearLayoutManager(this)); //set the layout of the contents, i.e. list of repeating views in the recycler view
 
@@ -70,20 +66,17 @@ public class MainScreen extends AppCompatActivity
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-
         //Setting up firebase
         //Getting the questions from firebase and sorting them according to how frequent they have been asked
         rootNode = FirebaseDatabase.getInstance();
         query = FirebaseDatabase.getInstance().getReference().child("Questions").orderByChild( "Number of times asked");
-        query.addListenerForSingleValueEvent(new ValueEventListener()
-        {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 questionsList = new ArrayList<>();
-                //iterating through all questions ( later we will update this so it will iterate through most asked 15-20 questions)
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-                {
+
+                // iterating through all questions ( later we will update this so it will iterate through most asked 15-20 questions)
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     //Retrieving data from realtime database and placing them in variables
                     String question = (String) postSnapshot.child("Question").getValue();
                     ArrayList<String> tags = (ArrayList<String>) postSnapshot.child( "Tags").getValue();
@@ -92,45 +85,37 @@ public class MainScreen extends AppCompatActivity
                     int i = 0;
                     int numOfAns = 0;
 
-                    //Getting the answers of the question
-                    for (DataSnapshot postSnapshot1 : postSnapshot.child("Answers").getChildren())
-                    {
+                    // Getting the answers of the question
+                    for (DataSnapshot postSnapshot1 : postSnapshot.child("Answers").getChildren()) {
                         i++;
                         String ans = (String) postSnapshot1.getValue();
                         Answer newAnswer = new Answer( ans, i );
                         answers.add( newAnswer );
                         numOfAns = i;
                     }
+
                     String questNum = (String) postSnapshot.getKey();
                     Question newQuestion= new Question( question, answers, tags, questNum, numOfAns, timesAsked );
                     questionsList.add(newQuestion );
                 }
+
                 mAdapter = new QuestionAdapter(MainScreen.this, questionsList, "no");
                 recyclerView.setAdapter(mAdapter);
 
-                //Reversing the arraylist of Question so we will get the questions in descending order based on how many times they have been asked
+                // Reversing the arraylist of Question so we will get the questions in descending order based on how many times they have been asked
                 Collections.reverse( questionsList);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(MainScreen.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
             }
         }); //Add listener
     }
     //Go to asking questions screen
-    public void openAskScreen()
-    {
+    public void openAskScreen() {
         Intent intent;
         intent = new Intent(this, AskingQuestionsScreen.class);
         startActivity(intent);
     }
 }
-
-
-
-
-
-
-
