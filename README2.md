@@ -28,7 +28,7 @@ Our project is working and we launched the demo video on 20.05.2020. All main pa
 #### Group Members
 - [Mustafa Oğuz DUMAN](oguz_duman_personallog.txt)   : Question and Answer classes 
 - [Olcaytu GÜRKAN](olcaytu-gurkan_log.txt)
-- [Selbi ERESHOVA](Selbi_Ereshova-personallog.txt)
+- [Selbi ERESHOVA](Selbi_Ereshova-personallog.txt)   : Main screen, Question Screen and Splash screen
 - [Emirhan Nadir KARAMAN](emirhan-karaman_log.txt)   : Overtext and AskingQuestionsScreen classes
 - [Suleyman HANYYEV](Suleyman_Hanyyev-personallog.txt)
 
