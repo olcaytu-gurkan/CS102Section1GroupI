@@ -5,5 +5,5 @@ how to learn using new material like these. We experienced what coding and creat
 We also found out the joy and pride of seeing a project of our own work. We began our project later than we planned 
 and needed to rush things and this created some problems. Working as a group, trying to create reusable classes and
 trying to merge all code and come up with properly working application were difficult tasks. Thanks to our experience
-obtained from this project; we would learn things and work more efficiently as a group if we started over. However,
+obtained from this project, we would learn things and work more efficiently as a group if we started over. However,
 we think that we did a great job in a 4 week span and we are proud of our work.
