@@ -13,7 +13,7 @@ We solved the group homework: The Hangman game. Everyone contributed.
 **ToDo:** Need to upload to Moodle.
 
 ****
-### Meeting ~ Project idea brainstorming at Bilka (date, 1 hours)
+### Meeting ~ Project idea brainstorming at Bilka (date, 1 hour)
 ****
 **Present:** Everyone 
 
@@ -31,7 +31,7 @@ We have discussed project ideas. Each one of us came up with at least one projec
 We have written the project proposal.
 
 ****
-### Meeting ~ Project idea brainstorming at Mozart cafe (date, 1 hours)
+### Meeting ~ Project idea brainstorming at Mozart cafe (date, 1 hour)
 ****
 **Present:** Everyone 
 
@@ -42,7 +42,7 @@ Since Mr.Davenport didn’t like any of our ideas we decided to go with the most
 ****
 
 ****
-### Meeting ~ Created the UI for our program. (23 March, 3 hour)
+### Meeting ~ Created the UI for our program. (23 March, 3 hours)
 ****
 **Present:** Everyone
 
@@ -54,7 +54,7 @@ Decided the UI for our program. We did the "art" phase of it.
 ****
 
 ****
-### Meeting ~ Finishing UI report (1 May, 2 hour)
+### Meeting ~ Finishing UI report (1 May, 2 hours)
 ****
 **Present:** Everyone
 
@@ -66,7 +66,7 @@ We wrote and modified our UI report.
 ****
 
 ****
-### Meeting ~ Sketched the outline of our detailed design (23 April, 2.5 hour)
+### Meeting ~ Sketched the outline of our detailed design (23 April, 2.5 hours)
 ****
 **Present:** Everyone
 
@@ -77,7 +77,7 @@ Decided the main classes and objects and properties.
 ****
 
 ****
-### Meeting ~ Finishing the detailed design (26 April, 2 hour)
+### Meeting ~ Finishing the detailed design (26 April, 2 hours)
 ****
 **Present:** Everyone
 
@@ -106,7 +106,7 @@ We distributed the work need to be done to accomplished our project.
 ****
 
 ****
-### Meeting ~ Merging the main code parts (11 May, 1.5 hour)
+### Meeting ~ Merging the main code parts (11 May, 1.5 hours)
 ****
 **Present:** Everyone
 
