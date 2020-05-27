@@ -38,7 +38,10 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
     private String question;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+<<<<<<< HEAD
+=======
     private int tmp = 0;
+>>>>>>> master
 
     // constructors
     @Override
@@ -68,7 +71,7 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
 
     // methods
     public void onClick(View v) {
-        // if addButton is pressed, gets only non repeated tags into tagsList
+        // if addButton is pressed, get only non repeated tags into tagsList
         if (v.getId() == addButton.getId()) {
             for (int i = 0; i < tagsList.size(); i++) {
                 if (tagsList.get(i).toLowerCase().equals(("#" + tagSpace.getText()).toLowerCase())
@@ -128,14 +131,15 @@ public class AskingQuestionsScreen extends AppCompatActivity implements View.OnC
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
-        }); //Add listener
+        }); // Add listener
     }
 
+    // compare tags of questions from the database, with the tags of the user's question
      public int compareTags(ArrayList<String> ar) {
          int count = 0;
          for (int i = 0; i < tagsList.size(); i++) {
              for (int j = 0; j < ar.size(); j++) {
-                 if (this.tagsList.get(i).toLowerCase().equals(ar.get(j).toLowerCase())) {
+                 if (this.tagsList.get(i).toLowerCase().equals(ar.get(j).toLowerCase())) { // not case sensitive 
                      count++;
                  }
              }
